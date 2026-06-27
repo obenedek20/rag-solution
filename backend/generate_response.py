@@ -5,6 +5,7 @@ import json
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from company_lookup import route, build_entity_map
 import os
+from sentence_transformers import CrossEncoder
 
 ###############################
 # Querying (Online)
@@ -78,7 +79,7 @@ def retrieve(query):
         with open("nodes.json", "r") as f:
             all_nodes = json.load(f)
         global_index = faiss.read_index("global.index.faiss") # binary vector db with embeddings of size n
-        scores, idx = global_index.search(vec, k=10)
+        scores, idx = global_index.search(vec, k=40)
         results = [all_nodes[i] for i in idx[0]]
 
     # CASE 2: PER-COMPANY
@@ -88,10 +89,28 @@ def retrieve(query):
             index = company_indexes[ticker]["index"]
             nodes = company_indexes[ticker]["nodes"]
 
-            scores, idx = index.search(vec, k=5)
+            scores, idx = index.search(vec, k=10)
 
             results.extend(nodes[i] for i in idx[0])
 
+    return rerank(results, query)
+
+def rerank(results, query):
+    reranker = CrossEncoder("BAAI/bge-reranker-base")
+    pairs = [
+        (query, node["text"])
+        for node in results
+    ]
+
+    rerank_scores = reranker.predict(pairs)
+
+    ranked = sorted(
+        zip(rerank_scores, results),
+        key=lambda x: x[0],
+        reverse=True
+    )
+
+    results = [node for score, node in ranked[:8]]
     return results
 
 # Build final LLM prompt
@@ -133,7 +152,9 @@ def ask_llm(prompt):
 
 if __name__ == "__main__":
 
-    prompt = "What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
+    # prompt = "What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
+    # prompt = "How has NVIDIA's revenue and growth outlook changed over the last two years?"
+    prompt = "What regulatory risks do the major pharmaceutical companies face, and how are they addressing them?"
 
     print(f"Query: {prompt}")
     print(f"Retrieving relevant nodes...")

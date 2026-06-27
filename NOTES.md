@@ -37,15 +37,7 @@ Two stages:
 
 TODO:
 - defend each design choice
-- code up the design
-    - try and collect results without re-ranking
-    - add re-ranking and compare results
 - iteratively test design
-- Try to pre-process data:
-    - Because this is an EDGAR corpus, I'd also recommend checking for duplicate or boilerplate text. Many filings repeat sections like legal disclaimers or standard headers. Removing those before indexing can reduce the number of chunks and improve retrieval quality.
 - Make sure this can be run on localhost
     1. setup backend to response to api call
     2. frontend - simple but able to send out call, wait for sync response, show loading while waiting
-- per company approach for rag search
-    1. potentially eliminates the issue where one company does not have the chunks available
-    2. risk: too much info for the LLM to handle (because we accidently select too many tickers)

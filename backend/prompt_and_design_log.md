@@ -548,7 +548,7 @@ The provided context includes risk factors for Apple and Tesla but does not ment
 
 ## Note: clearly the company data is being picked up, but we are still not getting all the info we may need. Next I will try to reduce the chunk size for more fine grained answers.
 
-# 5. 
+# 5. Smaller Chunks
 ## Idea: Smaller chunks may focus in more on what we are looking for, especially for company-related searches
 You are a helpful assistant. Use ONLY the context below.
 
@@ -897,3 +897,93 @@ The primary risk factors facing **Apple**, **Tesla**, and **JPMorgan Chase** inc
 **Overlap**: All three companies grapple with **technological disruption**, **operational complexity**, and **legal challenges**, but the nature and scale of these risks differ by industry.
 
 ## Note: good results here - and better to keep the RAG retrieval smaller to not clog up the LLM
+
+# 7. Introduce Re-Ranking
+## Idea: Improve the accuracy of pulled chunks
+
+You are a helpful assistant. Use ONLY the context below.
+
+Context:
+
+    [Source 1: AAPL_10K_2024Q3_2024-11-01_full.txt]
+
+    Potential outcomes include financial instability; inability to obtain credit to finance business operations; and insolvency.Adverse economic conditions can also lead to increased credit and collectibility risk on the Company’s trade receivables; the failure of derivative counterparties and other financial institutions; limitations on the Company’s ability to issue new debt; reduced liquidity; and declines in the fair values of the Company’s financial instruments. These and other impacts can materially adversely affect the Company’s business, results of operations, financial condition and stock price.Apple Inc.
+
+    
+    [Source 2: AAPL_10K_2025-10-31_full.txt]
+
+    Competition has been particularly intense as competitors have aggressively cut prices and lowered product margins. Certain competitors have the resources, experience or cost structures to provide products and services at little or no profit or even at a loss. The Company has a minority market share in the global smartphone, personal computer, tablet and wearables markets, and some of the markets in which the Company competes have from time to time experienced little to no growth or contracted overall.If the Company is unable to compete successfully, its business, reputation, results of operations, financial condition and stock price can be materially adversely affected.Apple Inc.
+
+    
+    [Source 3: JPM_10K_2026-02-13_full.txt]
+
+    8 |  |
+Item 1A. Risk Factors. The following discussion sets forth the material risk factors that could affect JPMorganChase’s financial condition and operations. Readers should not consider any descriptions of these factors to be a complete set of all potential risks that could affect the Firm. Any of the risk factors discussed below could by itself, or combined with other factors, materially and adversely affect JPMorganChase’s business, results of operations, financial condition, capital position, liquidity, competitive position or reputation, including by materially increasing expenses or decreasing revenues, which could result in material losses or a decrease in earnings.SummaryThe principal risk factors include:•Legal and Regulatory risks, including the impact of extensive supervision and regulation, as well as changes to or in the application, interpretation or enforcement of applicable law or executive branch actions, on JPMorganChase’s business and operations;
+
+    
+    [Source 4: JPM_10K_2026-02-13_full.txt]
+
+    JPMorganChase’s actual future results may differ materially from those set forth in its forward-looking statements. While there is no assurance that any list of risks and uncertainties or risk factors is complete, below are certain factors which could cause actual results to differ from those in the forward-looking statements:•Local, regional and global business, economic and political conditions and geopolitical events, including geopolitical tensions and hostilities;•Changes in laws, rules and regulatory requirements, including capital and liquidity requirements affecting the Firm’s businesses, and the ability of the Firm to address those requirements;•Heightened regulatory and governmental oversight and scrutiny of JPMorganChase’s business practices, including dealings with retail customers;•Changes in trade, monetary and fiscal policies and laws;•Changes in the level of inflation;•Changes in income tax laws, rules, and regulations;•Securities and capital markets behavior, including changes in market liquidity and volatility;•Changes in investor sentiment or consumer spending or savings behavior;
+
+    
+    [Source 5: TSLA_10K_2022Q4_2023-01-31_full.txt]
+
+    In particular, Tesla’s products, business, results of operations, and statements and actions of Tesla and its management are well-publicized by a range of third parties. Such attention can include criticism, which may be exaggerated or unfounded, such as speculation regarding the sufficiency or stability of our management team. Any such negative perceptions, whether caused by us or not, may harm our business and make it more difficult to raise additional funds if needed.
+We may be unable to effectively grow, or manage the compliance, residual value, financing and credit risks related to, our various financing programs.
+We offer financing arrangements for our vehicles in North America, Europe and Asia primarily ourselves and through various financial institutions. We also currently offer vehicle financing arrangements directly through our local subsidiaries in certain markets.
+
+    
+    [Source 6: AAPL_10K_2025-10-31_full.txt]
+
+    As a result, the value and liquidity of the Company’s cash, cash equivalents and marketable securities may fluctuate substantially. Although the Company has not realized significant losses on its cash, cash equivalents and marketable securities, future fluctuations in their value could result in significant losses and could have a material adverse impact on the Company’s results of operations, financial condition and stock price.The Company is exposed to credit risk on its trade accounts receivable, vendor non-trade receivables and prepayments related to long-term supply agreements, and this risk is heightened during periods when economic conditions worsen.The Company distributes its products and certain of its services through third-party cellular network carriers and other resellers. The Company also sells its products and services directly to small and mid-sized businesses and education, enterprise and government customers.
+
+    
+    [Source 7: JPM_10K_2026-02-13_full.txt]
+
+    including certain threat actors that are well-resourced and can sustain malicious activities for extended periods, and •JPMorganChase does not have control over the cybersecurity of the systems of the numerous clients, customers, counterparties and third-party service providers with which it does business.The cybersecurity risks that JPMorganChase faces could be intensified by factors such as:•increased volume and complexity of cyber attacks during periods of heightened geopolitical tensions•technological advances such as artificial intelligence (“AI”) and quantum computing that may enable malicious actors to develop more advanced social engineering attacks, including targeted phishing attacks, and•technological advances which may counteract or nullify existing information security protections, including cryptographic protections, potentially exposing data. In addition, JPMorganChase could be required to make significant investments in technology in order to transition effectively to more robust security protections, including quantum-resistant encryption. Any such transition may not be completed before relevant threats become operational,
+
+    
+    [Source 8: AAPL_10K_2025-10-31_full.txt]
+
+    The Company also pursues environmental and other goals and initiatives that involve risks and uncertainties, require investments, and depend in part on third-party performance or data that is outside the Company’s control, and the Company may not be able to fully achieve all of its goals and initiatives. Efforts by the Company to advance its business and values, or achieve its goals and further its initiatives, or to align with stakeholders’ expectations, or comply with evolving, varied and at times conflicting federal, state and international laws, executive orders, regulations and standards, or any failure or perceived failure to do so, can result in adverse reactions by consumers and other stakeholders, including the commencement of legal and regulatory proceedings against the Company, and can materially adversely affect the Company’s business, reputation, results of operations, financial condition and stock price.Apple Inc.
+
+    
+
+Question:
+What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?
+
+If the answer is not in the context, say you don't know.
+
+## Query: 
+"What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
+
+## Result:
+
+The primary risk factors for Apple, Tesla, and JPMorganChase (JPM) are outlined below, with comparisons noted:
+
+### **Apple (AAPL)**
+1. **Financial and Credit Risks**: Exposure to credit risk on trade receivables, vendor receivables, and prepayments. Adverse economic conditions could reduce liquidity, increase credit losses, and lower the fair value of financial instruments.  
+2. **Economic and Market Volatility**: Fluctuations in the value of cash, cash equivalents, and marketable securities could lead to significant losses.  
+3. **Regulatory and Environmental Compliance**: Risks from failing to meet evolving environmental goals, stakeholder expectations, or regulatory standards, potentially leading to legal actions or reputational harm.  
+4. **Supply Chain and Third-Party Dependencies**: Reliance on third-party resellers and carriers, with risks tied to their performance or disruptions.  
+
+### **Tesla (TSLA)**
+1. **Public Perception and Reputation**: Negative perceptions (e.g., criticism of management or product stability) could harm business and fundraising efforts.  
+2. **Financing Program Risks**: Challenges in managing compliance, residual value, and credit risks for vehicle financing programs, which involve third-party financial institutions.  
+3. **Regulatory and Environmental Initiatives**: Risks from failing to meet environmental goals or align with stakeholder expectations, similar to Apple.  
+
+### **JPMorganChase (JPM)**
+1. **Legal and Regulatory Risks**: Extensive supervision, changes in laws/regulations, and geopolitical events could impact operations, capital, liquidity, or reputation.  
+2. **Cybersecurity Threats**: Exposure to advanced cyberattacks (e.g., AI-driven phishing, quantum computing risks), with limited control over third-party systems. Significant investments may be required for robust security measures.  
+3. **Market and Economic Volatility**: Sensitivity to changes in trade policies, inflation, tax laws, and investor sentiment, which could affect revenues and earnings.  
+
+### **Comparisons**
+- **Regulatory and Legal Risks**: All three face regulatory challenges, but JPM has more pronounced risks due to its financial services nature and reliance on compliance with evolving laws.  
+- **Credit and Liquidity Risks**: Apple and Tesla are exposed to credit risks from receivables and financing programs, while JPM faces broader liquidity and capital requirements.  
+- **Cybersecurity**: JPM’s cybersecurity risks are uniquely elevated due to its reliance on third-party systems and technological advancements.  
+- **Reputational and Environmental Risks**: Apple and Tesla share risks from environmental initiatives and public perception, whereas JPM’s risks are more tied to legal and operational compliance.  
+
+**Key Differences**: JPM’s risks are heavily focused on cybersecurity, regulatory compliance, and systemic financial stability, while Apple and Tesla emphasize credit, liquidity, and reputational factors.
+
+## Note: reranking seems to create good (and sometimes more concise results) while making sure that the nodes pulled are accurate
+Especially for named company search, we can pull a lot of results from each company and then drill down for the most important ones
