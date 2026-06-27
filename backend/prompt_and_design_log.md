@@ -549,3 +549,351 @@ The provided context includes risk factors for Apple and Tesla but does not ment
 ## Note: clearly the company data is being picked up, but we are still not getting all the info we may need. Next I will try to reduce the chunk size for more fine grained answers.
 
 # 5. 
+## Idea: Smaller chunks may focus in more on what we are looking for, especially for company-related searches
+You are a helpful assistant. Use ONLY the context below.
+
+Context:
+
+    [Source 1: JPM_10K_2026-02-13_full.txt]
+
+    Furthermore, both financial institutions and their non-banking competitors face the risk of disruption to payments processing and other products and services from the use of new technologies that may not require intermediation, such as tokenized securities or other products that leverage distributed ledger technology. New technologies have required and could require JPMorganChase to increase expenditures to modify its products to attract and retain clients and customers or to match products and services offered by its competitors, including technology companies. If JPMorganChase does not keep pace with rapidly changing technological advances, including the adoption of generative AI, it risks losing clients and market share to competitors, which could negatively impact revenues, operating costs and its competitive position. Competition could be intensified as the feasibility, capability and scalability of new technologies improves.
+
+    
+    [Source 2: JPM_10K_2026-02-13_full.txt]
+
+    Any of these impacts could, in turn, reduce JPMorganChase’s revenues. Increased competition also could require JPMorganChase to make additional capital investments in its businesses, or to extend more of its capital on behalf of its clients to remain competitive. Furthermore, regulatory uncertainty regarding new technologies, including inconsistent regulatory approaches within and across jurisdictions, could require JPMorganChase to modify or restrict its product and service offerings, incur higher operational or compliance costs or forgo business opportunities.JPMorganChase’s operations, results, and competitive standing could be adversely affected by the development of advanced technologies such as AI.The rapid development and deployment of advanced technologies, including generative and agentic AI systems, present a range of risks to JPMorganChase’s businesses and operations, including:•AI system failures, inappropriate use of AI systems, lack of transparency in AI systems, or inaccurate or biased output from AI systems resulting from rapid deployment, insufficient testing, erroneous data, ineffective model design or insufficient controls,
+
+    
+    [Source 3: JPM_10K_2026-02-13_full.txt]
+
+    On the other hand, any efficiencies or competitive advantages that AI may offer could be squandered if JPMorganChase fails to adopt AI in a timely and judicious manner and to make related adjustments to its workforce.Any of these factors could materially and adversely affect JPMorganChase’s business and operations, results of operations, competitive position or reputation.The effects of climate change could adversely affect JPMorganChase’s business and operations, both directly and as a result of impacts on its clients and customers.Both physical risks and transition risks associated with climate change could negatively impact JPMorganChase and its clients and customers. Physical risks include the increased frequency or severity of acute weather events and shifting climate patterns, which may lead to lower asset values, increased insurance costs, and business and supply chain disruptions.
+
+    
+    [Source 4: JPM_10K_2026-02-13_full.txt]
+
+    JPMorganChase’s actual future results may differ materially from those set forth in its forward-looking statements. While there is no assurance that any list of risks and uncertainties or risk factors is complete, below are certain factors which could cause actual results to differ from those in the forward-looking statements:•Local, regional and global business, economic and political conditions and geopolitical events, including geopolitical tensions and hostilities;•Changes in laws, rules and regulatory requirements, including capital and liquidity requirements affecting the Firm’s businesses, and the ability of the Firm to address those requirements;•Heightened regulatory and governmental oversight and scrutiny of JPMorganChase’s business practices, including dealings with retail customers;•Changes in trade, monetary and fiscal policies and laws;•Changes in the level of inflation;•Changes in income tax laws, rules, and regulations;•Securities and capital markets behavior, including changes in market liquidity and volatility;•Changes in investor sentiment or consumer spending or savings behavior;
+
+    
+    [Source 5: JPM_10K_2026-02-13_full.txt]
+
+    and the potential adverse effects that any downgrades of JPMorganChase’s credit ratings could have on its liquidity and cost of funding.•Capital risks, including the risk that JPMorganChase’s ability to distribute capital to shareholders or to support its business activities could be limited if it does not satisfy applicable regulatory capital requirements.•Operational risks, including risks associated with JPMorganChase’s dependence on its operational systems and its employees, as well as the systems and employees of acquired businesses and external parties; the harm that could be caused by a successful cyber attack affecting JPMorganChase or by other extraordinary events; the adverse effects of failing to identify and address operational risks associated with the introduction of or changes to products, services and delivery platforms or technologies, as well as risks related to data management processes; risks related to safeguarding personal information; potential adverse effects of failing to comply with applicable standards for the oversight of vendors and other service providers; and risks associated with JPMorganChase’s risk management framework and control environment,
+
+    
+    [Source 6: JPM_10K_2026-02-13_full.txt]
+
+    Competition could be intensified as the feasibility, capability and scalability of new technologies improves. In addition, new technologies (including generative AI) could be used by customers or bad actors in unexpected or disruptive ways, or could be breached or infiltrated by third parties, which could increase JPMorganChase’s compliance expenses and reduce its income related to the offering of products and services through those technologies.Actions by competitors could put pressure on the pricing for JPMorganChase’s products and services or could cause it to lose market share, particularly with respect to investment products and traditional banking products. In addition, advocacy by non-banking competitors for exemptions from regulatory requirements could significantly disadvantage traditional financial institutions. The failure of any of JPMorganChase’s businesses to meet the expectations of clients and customers, whether due to general market conditions, under-performance, a decision not to offer a particular product or service, changes in client and customer expectations or other factors, could affect JPMorganChase’s ability to attract or retain clients and customers.
+
+    
+    [Source 7: JPM_10K_2026-02-13_full.txt]
+
+    These actions could require JPMorganChase to modify or cease operations or could result in other penalties. Furthermore, concerns regarding the effectiveness of JPMorganChase’s measures to safeguard personal information, or the perception that those measures are inadequate, could cause JPMorganChase to lose clients, customers or employees, and thereby reduce JPMorganChase’s revenues. Any of these factors could cause reputational harm and otherwise adversely affect JPMorganChase’s businesses.The growing sophistication of technology poses a heightened risk of identity fraud, as malicious actors may exploit technology to create convincing false identities or manipulate verification processes. Failure to manage these risks or to implement effective countermeasures could lead to unauthorized transactions, financial losses, increased regulatory scrutiny and reputational harm. In addition, greater government scrutiny of practices related to the handling of personal information has in some cases resulted in, and could in the future lead to, the adoption of applicable law in the U.S.
+
+    
+    [Source 8: JPM_10K_2026-02-13_full.txt]
+
+    Any or all of these factors could further increase the costs and consequences of a cyber attack.JPMorganChase’s businesses could be adversely affected if it fails to identify and address operational risks associated with the introduction of or changes to products, services, delivery platforms or technologies.JPMorganChase may not always identify or recognize the full extent of operational risks that could arise from:•the introduction of a new product or service, including platforms for the delivery or distribution of products or services •the acquisition or integration of, or investment in, a new business, product or portfolio, including the development of any related technological capabilities•the adoption of a new technology, or•changes to existing products, services, delivery platforms, businesses and technologies.Any significant failure by JPMorganChase to identify the operational risks associated with these types of changes, or to implement adequate controls to mitigate those risks, has resulted and could in the future result in:•hindering JPMorganChase’s ability to operate its businesses•potential liability to clients,
+
+    
+    [Source 9: TSLA_10Q_2022Q3_2022-10-24_full.txt]
+
+    We are unable to reasonably estimate the possible loss or range of loss, if any, associated with these claims.25
+On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted. JP Morgan now alleges that it is owed approximately $162 million as the value of additional shares that it claims should have been delivered as a result of the adjustment to the strike price in 2018.
+
+    
+    [Source 10: TSLA_10Q_2022Q1_2022-04-25_full.txt]
+
+    We are unable to reasonably estimate the possible loss or range of loss, if any, associated with these claims.On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted. JP Morgan now alleges that it is owed approximately $162 million as the value of additional shares that it claims should have been delivered as a result of the adjustment to the strike price in 2018.
+
+    
+    [Source 11: TSLA_10Q_2024Q3_2024-10-24_full.txt]
+
+    The lawsuit has been stayed pending resolution of a motion to consolidate certain derivative lawsuits in the Delaware Court of Chancery referenced below. On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted. JP Morgan now alleges that it is owed approximately $162 million as the value of additional shares that it claims should have been delivered as a result of the adjustment to the strike price in 2018.
+
+    
+    [Source 12: TSLA_10Q_2022Q2_2022-07-25_full.txt]
+
+    If we are not successful in managing these risks, our business, financial condition and operating results may be harmed.
+Employees may leave Tesla or choose other employers over Tesla due to various factors, such as a very competitive labor market for talented individuals with automotive or technology experience, or any negative publicity related to us. In regions where we have or will have operations, particularly significant engineering and manufacturing centers, there is strong competition for individuals with skillsets needed for our business, including specialized knowledge of electric vehicles, engineering and electrical and building construction expertise. Moreover, we may be impacted by perceptions relating to reductions in force that we have conducted in the past in order to optimize our organizational structure and reduce costs and the departure of certain senior personnel for various reasons. We also compete with both mature and prosperous companies that have far greater financial resources than we do and start-ups and emerging companies that promise short-term growth opportunities.
+
+    
+    [Source 13: TSLA_10K_2023Q4_2024-01-29_full.txt]
+
+    Among other things, the plaintiff seeks reforms to the Company’s corporate governance and internal procedures, unspecified damages, and attorneys’ fees. The parties reached an agreement to stay the case until March 5, 2024.On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted.
+
+    
+    [Source 14: TSLA_10Q_2023Q2_2023-07-24_full.txt]
+
+    Among other things, the plaintiff seeks reforms to the Company’s corporate governance and internal procedures, unspecified damages, and attorneys’ fees. The parties reached an agreement to stay the case until September 5, 2023.On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted.
+
+    
+    [Source 15: TSLA_10Q_2023Q1_2023-04-24_full.txt]
+
+    Among other things, the plaintiff seeks reforms to the Company’s corporate governance and internal procedures, unspecified damages, and attorneys’ fees. The parties reached an agreement to stay the case until June 5, 2023.18
+On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted.
+
+    
+    [Source 16: TSLA_10Q_2024Q1_2024-04-24_full.txt]
+
+    Among other things, the plaintiff seeks reforms to the Company’s corporate governance and internal procedures, unspecified damages, and attorneys’ fees. The parties reached an agreement to stay the case until June 3, 2024.On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted.
+
+    
+    [Source 17: AAPL_10K_2024Q3_2024-11-01_full.txt]
+
+    Potential outcomes include financial instability; inability to obtain credit to finance business operations; and insolvency.Adverse economic conditions can also lead to increased credit and collectibility risk on the Company’s trade receivables; the failure of derivative counterparties and other financial institutions; limitations on the Company’s ability to issue new debt; reduced liquidity; and declines in the fair values of the Company’s financial instruments. These and other impacts can materially adversely affect the Company’s business, results of operations, financial condition and stock price.Apple Inc.
+
+    
+    [Source 18: AAPL_10K_2024Q3_2024-11-01_full.txt]
+
+    These new ventures are inherently risky and may not be successful. The failure of any significant investment could materially adversely affect the Company’s business, reputation, results of operations and financial condition.The Company’s retail stores are subject to numerous risks and uncertainties.The Company’s retail operations are subject to many factors that pose risks and uncertainties and could adversely impact the Company’s business, results of operations and financial condition, including macroeconomic factors that could have an adverse effect on general retail activity. Other factors include the Company’s ability to: manage costs associated with retail store construction and operation; manage relationships with existing retail partners; manage costs associated with fluctuations in the value of retail inventory; and obtain and renew leases in quality retail locations at a reasonable cost.Apple Inc.
+
+    
+    [Source 19: AAPL_10K_2023Q3_2023-11-03_full.txt]
+
+    The use of such hedging activities may not be effective to offset any, or more than a portion, of the adverse financial effects of unfavorable movements in foreign exchange rates over the limited time the hedges are in place.The Company is exposed to credit risk and fluctuations in the values of its investment portfolio.The Company’s investments can be negatively affected by changes in liquidity, credit deterioration, financial results, market and economic conditions, political risk, sovereign risk, interest rate fluctuations or other factors. As a result, the value and liquidity of the Company’s cash, cash equivalents and marketable securities may fluctuate substantially. Therefore, although the Company has not realized any significant losses on its cash, cash equivalents and marketable securities, future fluctuations in their value could result in significant losses and could have a material adverse impact on the Company’s results of operations and financial condition.Apple Inc.
+
+    
+    [Source 20: AAPL_10K_2024Q3_2024-11-01_full.txt]
+
+    The success of new product and service introductions depends on a number of factors, including timely and successful development, market acceptance, the Company’s ability to manage the risks associated with new technologies and production ramp-up issues, the availability of application software or other third-party support for the Company’s products and services, the effective management of purchase commitments and inventory levels in line with anticipated product demand, the availability of products in appropriate quantities and at expected costs to meet anticipated demand, and the risk that new products and services may have quality or other defects or deficiencies. New products, services and technologies may replace or supersede existing offerings and may produce lower revenues and lower profit margins, which can materially adversely impact the Company’s business, results of operations and financial condition. There can be no assurance the Company will successfully manage future introductions and transitions of products and services.Apple Inc.
+
+    
+    [Source 21: AAPL_10K_2025-10-31_full.txt]
+
+    Competition has been particularly intense as competitors have aggressively cut prices and lowered product margins. Certain competitors have the resources, experience or cost structures to provide products and services at little or no profit or even at a loss. The Company has a minority market share in the global smartphone, personal computer, tablet and wearables markets, and some of the markets in which the Company competes have from time to time experienced little to no growth or contracted overall.If the Company is unable to compete successfully, its business, reputation, results of operations, financial condition and stock price can be materially adversely affected.Apple Inc.
+
+    
+    [Source 22: AAPL_10K_2025-10-31_full.txt]
+
+    The Company also pursues environmental and other goals and initiatives that involve risks and uncertainties, require investments, and depend in part on third-party performance or data that is outside the Company’s control, and the Company may not be able to fully achieve all of its goals and initiatives. Efforts by the Company to advance its business and values, or achieve its goals and further its initiatives, or to align with stakeholders’ expectations, or comply with evolving, varied and at times conflicting federal, state and international laws, executive orders, regulations and standards, or any failure or perceived failure to do so, can result in adverse reactions by consumers and other stakeholders, including the commencement of legal and regulatory proceedings against the Company, and can materially adversely affect the Company’s business, reputation, results of operations, financial condition and stock price.Apple Inc.
+
+    
+    [Source 23: AAPL_10Q_2025Q1_2025-05-02_full.txt]
+
+    Global climate change is resulting in certain types of natural disasters and extreme weather occurring more frequently or with more intense effects. In addition, the Company’s and its suppliers’ operations and facilities are subject to the risk of interruption by fire, power shortages, nuclear power plant accidents and other industrial accidents, terrorist attacks and other hostile acts, ransomware and other cybersecurity attacks, labor disputes, public health issues and other events beyond the Company’s control. For example, global supply chains can be highly concentrated and geopolitical tensions or conflict could result in significant disruptions.Such events can make it difficult or impossible for the Company to manufacture and deliver products to its customers, create delays and inefficiencies in the Company’s supply and manufacturing chain, result in slowdowns and outages to the Company’s service offerings, increase the Company’s costs, and negatively impact consumer spending and demand in affected areas.Apple Inc.
+
+    
+    [Source 24: AAPL_10K_2022Q3_2022-10-28_full.txt]
+
+    Because of their unique design elements, locations and size, these stores require substantially more investment than the Company’s more typical retail stores. Due to the high cost structure associated with the Company’s retail stores, a decline in sales or the closure or poor performance of an individual store or multiple stores, including as a result of protective public safety measures in response to the COVID-19 pandemic, could result in significant lease termination costs, write-offs of equipment and leasehold improvements and severance costs.The Company’s retail operations are subject to many factors that pose risks and uncertainties and could adversely impact the Company’s business, results of operations and financial condition, including macro-economic factors that could have an adverse effect on general retail activity. Other factors include the Company’s ability to: manage costs associated with retail store construction and operation; manage relationships with existing retail partners; manage costs associated with fluctuations in the value of retail inventory; and obtain and renew leases in quality retail locations at a reasonable cost.Apple Inc.
+
+    
+
+Question:
+What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?
+
+If the answer is not in the context, say you don't know.
+
+## Query: 
+"What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
+
+## Result:
+
+The primary risk factors facing Apple, Tesla, and JPMorgan differ by industry and operational focus but share some common themes like cybersecurity and supply chain disruptions. Here's a breakdown:
+
+### **Apple**  
+**Key Risks:**  
+1. **Market Competition:** Intense competition in smartphone, PC, tablet, and wearables markets, with rivals cutting prices and margins.  
+2. **Retail Operations:** High costs for store construction, lease renewals, and inventory management; risks from macroeconomic downturns or retail disruptions.  
+3. **Supply Chain Vulnerabilities:** Global supply chain disruptions due to geopolitical tensions, climate change, or natural disasters.  
+4. **Product Innovation Risks:** Failure to successfully launch new products or manage transitions, which could reduce revenue and profit margins.  
+5. **Environmental and Regulatory Pressures:** Risks from sustainability initiatives, regulatory compliance, and stakeholder expectations.  
+6. **Financial Exposure:** Credit risk, market fluctuations in investments, and hedging ineffectiveness for foreign exchange risks.  
+
+### **Tesla**  
+**Key Risks:**  
+1. **Legal and Contractual Disputes:** Ongoing lawsuits (e.g., with JPMorgan) over stock warrants and financial obligations.  
+2. **Production and Technology Challenges:** Risks in scaling production, managing technological hurdles, and meeting quality standards.  
+3. **Supply Chain Dependencies:** Reliance on third-party suppliers and risks of supply chain disruptions.  
+4. **Competition:** Pressure from traditional automakers and new EV competitors offering lower-priced alternatives.  
+5. **Financial Obligations:** Potential penalties for failing to meet contractual obligations or regulatory requirements.  
+6. **Retail and Operational Risks:** High costs for store investments and lease obligations, similar to Apple’s retail challenges.  
+
+### **JPMorgan**  
+**Key Risks:**  
+1. **Financial Market Volatility:** Exposure to credit risk, liquidity constraints, and market fluctuations in derivatives and investments.  
+2. **Cybersecurity Threats:** Risks from ransomware, data breaches, and other cyberattacks.  
+3. **Regulatory and Legal Risks:** Legal disputes (e.g., with Tesla) and compliance with evolving regulations.  
+4. **Operational Risks:** Failures of derivative counterparties or financial institutions, impacting liquidity and stability.  
+5. **Technological Adaptation:** Risks from rapid changes in financial technology (e.g., generative AI) requiring costly adaptations.  
+
+### **Comparison**  
+- **Shared Risks:** All three face cybersecurity threats and supply chain vulnerabilities (Apple and Tesla) or counterparty risks (JPMorgan).  
+- **Industry-Specific Risks:**  
+  - **Apple** and **Tesla** are consumer-facing, facing market competition, retail challenges, and product innovation risks.  
+  - **JPMorgan** operates in finance, with heightened exposure to credit risk, regulatory scrutiny, and systemic financial instability.  
+- **Legal and Contractual Risks:** Tesla and JPMorgan have notable legal disputes, while Apple’s risks are more focused on compliance and stakeholder expectations.  
+
+**Conclusion:** While all three companies face operational and financial risks, their primary concerns align with their industry roles—Apple and Tesla emphasize market and product risks, while JPMorgan prioritizes financial stability and regulatory compliance.
+
+## Note: MUCH better results - smaller chunk sizes allow for the important information to be taken as context
+
+# 6. Reduce top-k value
+## Idea: Now that chunk sizes are smaller, can we reduce the top k value for company-specific searching and still get good results?
+
+You are a helpful assistant. Use ONLY the context below.
+
+Context:
+
+    [Source 1: JPM_10K_2026-02-13_full.txt]
+
+    Furthermore, both financial institutions and their non-banking competitors face the risk of disruption to payments processing and other products and services from the use of new technologies that may not require intermediation, such as tokenized securities or other products that leverage distributed ledger technology. New technologies have required and could require JPMorganChase to increase expenditures to modify its products to attract and retain clients and customers or to match products and services offered by its competitors, including technology companies. If JPMorganChase does not keep pace with rapidly changing technological advances, including the adoption of generative AI, it risks losing clients and market share to competitors, which could negatively impact revenues, operating costs and its competitive position. Competition could be intensified as the feasibility, capability and scalability of new technologies improves.
+
+    
+    [Source 2: JPM_10K_2026-02-13_full.txt]
+
+    Any of these impacts could, in turn, reduce JPMorganChase’s revenues. Increased competition also could require JPMorganChase to make additional capital investments in its businesses, or to extend more of its capital on behalf of its clients to remain competitive. Furthermore, regulatory uncertainty regarding new technologies, including inconsistent regulatory approaches within and across jurisdictions, could require JPMorganChase to modify or restrict its product and service offerings, incur higher operational or compliance costs or forgo business opportunities.JPMorganChase’s operations, results, and competitive standing could be adversely affected by the development of advanced technologies such as AI.The rapid development and deployment of advanced technologies, including generative and agentic AI systems, present a range of risks to JPMorganChase’s businesses and operations, including:•AI system failures, inappropriate use of AI systems, lack of transparency in AI systems, or inaccurate or biased output from AI systems resulting from rapid deployment, insufficient testing, erroneous data, ineffective model design or insufficient controls,
+
+    
+    [Source 3: JPM_10K_2026-02-13_full.txt]
+
+    On the other hand, any efficiencies or competitive advantages that AI may offer could be squandered if JPMorganChase fails to adopt AI in a timely and judicious manner and to make related adjustments to its workforce.Any of these factors could materially and adversely affect JPMorganChase’s business and operations, results of operations, competitive position or reputation.The effects of climate change could adversely affect JPMorganChase’s business and operations, both directly and as a result of impacts on its clients and customers.Both physical risks and transition risks associated with climate change could negatively impact JPMorganChase and its clients and customers. Physical risks include the increased frequency or severity of acute weather events and shifting climate patterns, which may lead to lower asset values, increased insurance costs, and business and supply chain disruptions.
+
+    
+    [Source 4: JPM_10K_2026-02-13_full.txt]
+
+    JPMorganChase’s actual future results may differ materially from those set forth in its forward-looking statements. While there is no assurance that any list of risks and uncertainties or risk factors is complete, below are certain factors which could cause actual results to differ from those in the forward-looking statements:•Local, regional and global business, economic and political conditions and geopolitical events, including geopolitical tensions and hostilities;•Changes in laws, rules and regulatory requirements, including capital and liquidity requirements affecting the Firm’s businesses, and the ability of the Firm to address those requirements;•Heightened regulatory and governmental oversight and scrutiny of JPMorganChase’s business practices, including dealings with retail customers;•Changes in trade, monetary and fiscal policies and laws;•Changes in the level of inflation;•Changes in income tax laws, rules, and regulations;•Securities and capital markets behavior, including changes in market liquidity and volatility;•Changes in investor sentiment or consumer spending or savings behavior;
+
+    
+    [Source 5: JPM_10K_2026-02-13_full.txt]
+
+    and the potential adverse effects that any downgrades of JPMorganChase’s credit ratings could have on its liquidity and cost of funding.•Capital risks, including the risk that JPMorganChase’s ability to distribute capital to shareholders or to support its business activities could be limited if it does not satisfy applicable regulatory capital requirements.•Operational risks, including risks associated with JPMorganChase’s dependence on its operational systems and its employees, as well as the systems and employees of acquired businesses and external parties; the harm that could be caused by a successful cyber attack affecting JPMorganChase or by other extraordinary events; the adverse effects of failing to identify and address operational risks associated with the introduction of or changes to products, services and delivery platforms or technologies, as well as risks related to data management processes; risks related to safeguarding personal information; potential adverse effects of failing to comply with applicable standards for the oversight of vendors and other service providers; and risks associated with JPMorganChase’s risk management framework and control environment,
+
+    
+    [Source 6: TSLA_10Q_2022Q3_2022-10-24_full.txt]
+
+    We are unable to reasonably estimate the possible loss or range of loss, if any, associated with these claims.25
+On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted. JP Morgan now alleges that it is owed approximately $162 million as the value of additional shares that it claims should have been delivered as a result of the adjustment to the strike price in 2018.
+
+    
+    [Source 7: TSLA_10Q_2022Q1_2022-04-25_full.txt]
+
+    We are unable to reasonably estimate the possible loss or range of loss, if any, associated with these claims.On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted. JP Morgan now alleges that it is owed approximately $162 million as the value of additional shares that it claims should have been delivered as a result of the adjustment to the strike price in 2018.
+
+    
+    [Source 8: TSLA_10Q_2024Q3_2024-10-24_full.txt]
+
+    The lawsuit has been stayed pending resolution of a motion to consolidate certain derivative lawsuits in the Delaware Court of Chancery referenced below. On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted. JP Morgan now alleges that it is owed approximately $162 million as the value of additional shares that it claims should have been delivered as a result of the adjustment to the strike price in 2018.
+
+    
+    [Source 9: TSLA_10Q_2022Q2_2022-07-25_full.txt]
+
+    If we are not successful in managing these risks, our business, financial condition and operating results may be harmed.
+Employees may leave Tesla or choose other employers over Tesla due to various factors, such as a very competitive labor market for talented individuals with automotive or technology experience, or any negative publicity related to us. In regions where we have or will have operations, particularly significant engineering and manufacturing centers, there is strong competition for individuals with skillsets needed for our business, including specialized knowledge of electric vehicles, engineering and electrical and building construction expertise. Moreover, we may be impacted by perceptions relating to reductions in force that we have conducted in the past in order to optimize our organizational structure and reduce costs and the departure of certain senior personnel for various reasons. We also compete with both mature and prosperous companies that have far greater financial resources than we do and start-ups and emerging companies that promise short-term growth opportunities.
+
+    
+    [Source 10: TSLA_10K_2023Q4_2024-01-29_full.txt]
+
+    Among other things, the plaintiff seeks reforms to the Company’s corporate governance and internal procedures, unspecified damages, and attorneys’ fees. The parties reached an agreement to stay the case until March 5, 2024.On November 15, 2021, JPMorgan Chase Bank (“JP Morgan”) filed a lawsuit against Tesla in the Southern District of New York alleging breach of a stock warrant agreement that was entered into as part of a convertible notes offering in 2014. In 2018, JP Morgan informed Tesla that it had adjusted the strike price based upon Mr. Musk’s August 7, 2018 Twitter post that he was considering taking Tesla private. Tesla disputed JP Morgan’s adjustment as a violation of the parties’ agreement. In 2021, Tesla delivered shares to JP Morgan per the agreement, which they duly accepted.
+
+    
+    [Source 11: AAPL_10K_2024Q3_2024-11-01_full.txt]
+
+    Potential outcomes include financial instability; inability to obtain credit to finance business operations; and insolvency.Adverse economic conditions can also lead to increased credit and collectibility risk on the Company’s trade receivables; the failure of derivative counterparties and other financial institutions; limitations on the Company’s ability to issue new debt; reduced liquidity; and declines in the fair values of the Company’s financial instruments. These and other impacts can materially adversely affect the Company’s business, results of operations, financial condition and stock price.Apple Inc.
+
+    
+    [Source 12: AAPL_10K_2024Q3_2024-11-01_full.txt]
+
+    These new ventures are inherently risky and may not be successful. The failure of any significant investment could materially adversely affect the Company’s business, reputation, results of operations and financial condition.The Company’s retail stores are subject to numerous risks and uncertainties.The Company’s retail operations are subject to many factors that pose risks and uncertainties and could adversely impact the Company’s business, results of operations and financial condition, including macroeconomic factors that could have an adverse effect on general retail activity. Other factors include the Company’s ability to: manage costs associated with retail store construction and operation; manage relationships with existing retail partners; manage costs associated with fluctuations in the value of retail inventory; and obtain and renew leases in quality retail locations at a reasonable cost.Apple Inc.
+
+    
+    [Source 13: AAPL_10K_2023Q3_2023-11-03_full.txt]
+
+    The use of such hedging activities may not be effective to offset any, or more than a portion, of the adverse financial effects of unfavorable movements in foreign exchange rates over the limited time the hedges are in place.The Company is exposed to credit risk and fluctuations in the values of its investment portfolio.The Company’s investments can be negatively affected by changes in liquidity, credit deterioration, financial results, market and economic conditions, political risk, sovereign risk, interest rate fluctuations or other factors. As a result, the value and liquidity of the Company’s cash, cash equivalents and marketable securities may fluctuate substantially. Therefore, although the Company has not realized any significant losses on its cash, cash equivalents and marketable securities, future fluctuations in their value could result in significant losses and could have a material adverse impact on the Company’s results of operations and financial condition.Apple Inc.
+
+    
+    [Source 14: AAPL_10K_2024Q3_2024-11-01_full.txt]
+
+    The success of new product and service introductions depends on a number of factors, including timely and successful development, market acceptance, the Company’s ability to manage the risks associated with new technologies and production ramp-up issues, the availability of application software or other third-party support for the Company’s products and services, the effective management of purchase commitments and inventory levels in line with anticipated product demand, the availability of products in appropriate quantities and at expected costs to meet anticipated demand, and the risk that new products and services may have quality or other defects or deficiencies. New products, services and technologies may replace or supersede existing offerings and may produce lower revenues and lower profit margins, which can materially adversely impact the Company’s business, results of operations and financial condition. There can be no assurance the Company will successfully manage future introductions and transitions of products and services.Apple Inc.
+
+    
+    [Source 15: AAPL_10K_2025-10-31_full.txt]
+
+    Competition has been particularly intense as competitors have aggressively cut prices and lowered product margins. Certain competitors have the resources, experience or cost structures to provide products and services at little or no profit or even at a loss. The Company has a minority market share in the global smartphone, personal computer, tablet and wearables markets, and some of the markets in which the Company competes have from time to time experienced little to no growth or contracted overall.If the Company is unable to compete successfully, its business, reputation, results of operations, financial condition and stock price can be materially adversely affected.Apple Inc.
+
+    
+
+Question:
+What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?
+
+If the answer is not in the context, say you don't know.
+
+## Query: 
+"What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
+
+## Result:
+
+The primary risk factors facing **Apple**, **Tesla**, and **JPMorgan Chase** include **technological disruption**, **legal and regulatory challenges**, **operational risks**, **financial and market competition**, and **reputational concerns**. Here's a structured comparison:
+
+---
+
+### **1. Technological Disruption**
+- **JPMorgan Chase**:  
+  - Risks from **AI, distributed ledger technology (DLT)**, and **generative AI** disrupting payment processing and services.  
+  - Fear of losing market share to tech companies and competitors due to slow adoption of innovations.  
+- **Tesla**:  
+  - Relies on **electric vehicle (EV) and battery technology**, with risks of **product development failures** or **production ramp-up issues**.  
+  - Competition from traditional automakers and new EV startups.  
+- **Apple**:  
+  - Risks from **new product introductions** (e.g., smartphones, wearables) and **technological obsolescence**.  
+  - Challenges in managing **third-party software integration** and **production scalability**.  
+
+**Comparison**: All three face tech-driven risks, but JPMorgan focuses on financial services innovation, Tesla on EV/energy tech, and Apple on consumer electronics and software.
+
+---
+
+### **2. Legal and Regulatory Risks**
+- **JPMorgan Chase**:  
+  - **Lawsuit with Tesla** (stock warrant dispute) and **regulatory uncertainty** (e.g., climate policies).  
+- **Tesla**:  
+  - **Legal battles** (e.g., corporate governance lawsuits) and **regulatory scrutiny** (e.g., safety standards for EVs).  
+- **Apple**:  
+  - **Antitrust lawsuits** and **data privacy regulations** (e.g., EU/US laws).  
+
+**Comparison**: Legal risks are pervasive, but JPMorgan and Tesla face specific litigation, while Apple faces broader antitrust and privacy concerns.
+
+---
+
+### **3. Operational Risks**
+- **JPMorgan Chase**:  
+  - **Cybersecurity threats**, **compliance failures**, and **climate change impacts** (e.g., physical risks to infrastructure).  
+- **Tesla**:  
+  - **Labor market competition** (e.g., attracting engineers), **supply chain disruptions**, and **retail operations challenges** (e.g., store management).  
+- **Apple**:  
+  - **Retail store management** (e.g., lease costs, inventory fluctuations) and **supply chain vulnerabilities** (e.g., component shortages).  
+
+**Comparison**: Operational risks are diverse, with Tesla and Apple emphasizing supply chain and retail challenges, while JPMorgan focuses on cybersecurity and regulatory compliance.
+
+---
+
+### **4. Financial and Market Competition**
+- **JPMorgan Chase**:  
+  - **Interest rate volatility**, **credit risk**, and **intense competition** in financial services.  
+- **Tesla**:  
+  - **Price wars** with competitors and **market share limitations** in EVs and energy storage.  
+- **Apple**:  
+  - **Intense competition** in smartphones, wearables, and tablets, with rivals cutting prices and margins.  
+
+**Comparison**: All face competitive pressures, but JPMorgan deals with financial market dynamics, Tesla with EV market saturation, and Apple with consumer electronics competition.
+
+---
+
+### **5. Reputational and Strategic Risks**
+- **JPMorgan Chase**:  
+  - **Reputational damage** from legal disputes or operational failures.  
+- **Tesla**:  
+  - **Brand perception** risks (e.g., safety concerns, production delays).  
+- **Apple**:  
+  - **Reputational risks** from product defects, labor practices, or antitrust allegations.  
+
+**Comparison**: Reputational risks are tied to corporate governance, product quality, and ethical practices, with distinct industry-specific concerns.
+
+---
+
+### **Key Differences**:
+- **JPMorgan** emphasizes **regulatory and cybersecurity risks**, while **Tesla** and **Apple** focus more on **product innovation and market competition**.  
+- **Tesla** faces unique **labor and supply chain risks**, whereas **Apple** has **retail and supply chain vulnerabilities**.  
+- **JPMorgan** is exposed to **climate change** and **financial market instability**, which are less prominent for the other two companies.
+
+**Overlap**: All three companies grapple with **technological disruption**, **operational complexity**, and **legal challenges**, but the nature and scale of these risks differ by industry.
+
+## Note: good results here - and better to keep the RAG retrieval smaller to not clog up the LLM

@@ -78,7 +78,7 @@ def retrieve(query):
         with open("nodes.json", "r") as f:
             all_nodes = json.load(f)
         global_index = faiss.read_index("global.index.faiss") # binary vector db with embeddings of size n
-        scores, idx = global_index.search(vec, k=20)
+        scores, idx = global_index.search(vec, k=10)
         results = [all_nodes[i] for i in idx[0]]
 
     # CASE 2: PER-COMPANY
@@ -88,7 +88,7 @@ def retrieve(query):
             index = company_indexes[ticker]["index"]
             nodes = company_indexes[ticker]["nodes"]
 
-            scores, idx = index.search(vec, k=8)
+            scores, idx = index.search(vec, k=5)
 
             results.extend(nodes[i] for i in idx[0])
 
