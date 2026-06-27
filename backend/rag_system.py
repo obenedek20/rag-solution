@@ -14,32 +14,20 @@ Design
         intfloat/e5-base-v2
         intfloat/e5-large-v2
 
-Ollama
-    easy to use locally
-    `ollama serve` to start ollama server
-    `ollama pull qwen3:8b` to pull qwen3:8b model
-    models include: qwen3:8b, llama3.1:8b
-
 Stack
     LlamaIndex (Document parsing and chunking)
         ↓
     Sentence Transformers (Embeddings)
             ↓
-    FAISS (vector db, similarity search)
+    FAISS (vector db)
             ↓
     CrossEncoder reranker (re-ranking)
             ↓
     LLM (Ollama)
 
-Two stages:
-    Indexing: Read documents, chunk them, create embeddings, and build a FAISS index.
-    Querying (only one): Embed the question, retrieve the most relevant chunks, and send them to LLM
-
 TODO:
     - defend each design choice
     - code up the design
-        - try and collect results without re-ranking
-        - add re-ranking and compare results
     - iteratively test design
 """
 
@@ -48,7 +36,7 @@ from ollama import chat
 prompt = "What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
 
 response = chat(
-    model="llama3.1:8b",
+    model="qwen3:8b",
     messages=[
         {
             "role": "user",

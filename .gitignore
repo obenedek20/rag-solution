@@ -1,0 +1,8 @@
+.DS_Store
+backend/__pycache__/
+edgar_corpus/
+edgar_corpus.zip
+.venv/
+backend/storage/
+backend/*.faiss
+backend/nodes.json
