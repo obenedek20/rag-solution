@@ -6,3 +6,4 @@ llama-index
 llama-index-embeddings-huggingface
 torch==2.2.2
 numpy==1.26.4
+flask

@@ -150,12 +150,8 @@ def ask_llm(prompt):
     return response["message"]["content"]
 
 
-if __name__ == "__main__":
 
-    # prompt = "What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
-    # prompt = "How has NVIDIA's revenue and growth outlook changed over the last two years?"
-    prompt = "What regulatory risks do the major pharmaceutical companies face, and how are they addressing them?"
-
+def process_query(prompt):
     print(f"Query: {prompt}")
     print(f"Retrieving relevant nodes...")
     results = retrieve(prompt)
@@ -165,3 +161,4 @@ if __name__ == "__main__":
     print("Prompt: " + rag_prompt)
     response = ask_llm(rag_prompt)
     print("Response: " + response)
+    return response
