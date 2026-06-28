@@ -20,3 +20,4 @@
 - Faster loading and/or asynchronous response setup to allow for actual message updates while the LLM is processing
 - Explore semantic chunking more - had initially done this route, but stopped because the corpus was large - sized-chunking could cause issues with tables in the corpus (cuts them off in the middle)
 - Instead of creating ticker-to-company-name-and-alias translations beforehand and then regex matching based on this, match the prompt to available tickers with a second LLM call before retrieval
+- Add more interactive UI elements
