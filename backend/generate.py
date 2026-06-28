@@ -1,9 +1,12 @@
-from ollama import chat
+"""
+Functions for retrieval and generation for RAG system (online portion of pipeline)
+"""
+
 import faiss
 import numpy as np
 import json
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from company_lookup import route, build_entity_map
+from company_lookup import route, build_entity_map, ask_llm
 import os
 from sentence_transformers import CrossEncoder
 
@@ -15,7 +18,6 @@ embed_model = HuggingFaceEmbedding(
     device="mps" # more efficient when using Apple Silicon
 )
 
-ENTITY_MAP = build_entity_map()
 # chunks sent to LLM are the nodes from the json file - faiss index is used to pick nodes (ids in faiss match up to node json)
 
 # Query embedding
@@ -54,19 +56,7 @@ def retrieve_company_indexes():
         }
     return company_indexes
 
-# Retrieve top-K relevant nodes
-# def retrieve(query, k=5):
-#     q_emb = embed_query(query)
-
-#     scores, indices = index.search(q_emb, k)
-
-#     results = []
-#     # for idx in indices[0]:
-#     #     results.append(node_data[idx])
-#     results = [node_data[i] for i in indices[0]]
-
-#     return results
-def retrieve(query):
+def retrieve(query, ENTITY_MAP):
 
     route_info = route(query, ENTITY_MAP)
 
@@ -128,7 +118,7 @@ def build_prompt(query, results):
     """
 
     return f"""
-You are a helpful assistant. Use ONLY the context below.
+You are a helpful assistant. Use ONLY the context below. 
 
 Context:
 {context}
@@ -139,22 +129,11 @@ Question:
 If the answer is not in the context, say you don't know.
 """
 
-def ask_llm(prompt):
-    response = chat(
-        model="qwen3:8b",
-        messages=[
-            {"role": "user", "content": prompt}
-        ]
-    )
 
-    return response["message"]["content"]
-
-
-
-def process_query(prompt):
+def process_query(prompt, ENTITY_MAP):
     print(f"Query: {prompt}")
     print(f"Retrieving relevant nodes...")
-    results = retrieve(prompt)
+    results = retrieve(prompt, ENTITY_MAP)
     print(f"Retrieved {len(results)} nodes.")
     rag_prompt = build_prompt(prompt, results)
     print("Sending prompt to LLM...")

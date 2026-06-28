@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
-from generate_response import process_query
+from generate import process_query
+from company_lookup import build_entity_map
 
 app = Flask(__name__)
+ENTITY_MAP = build_entity_map()
 
 @app.get("/query")
 def query():
@@ -11,10 +13,8 @@ def query():
         return jsonify({
             "error": "Missing required parameter: query"
         }), 400
-    # prompt = "What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
-    # prompt = "How has NVIDIA's revenue and growth outlook changed over the last two years?"
-    # prompt = "What regulatory risks do the major pharmaceutical companies face, and how are they addressing them?"
-    response = process_query(query)
+
+    response = process_query(query, ENTITY_MAP)
     return jsonify({
         "response": response,
     })
