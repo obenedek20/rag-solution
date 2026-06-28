@@ -10,6 +10,10 @@
 1. Does the information display nicely.
 2. Is the user experience simple/easy to use?
 
+# Overall Usage:
+1. We should be able to get all information on a follow-up by providing summary from first prompt
+    - Given example in [PROMPT_AND_DESIGN.md], we get most (if not all) necessary info from follow-up
+
 
 # Future Design Improvements
 

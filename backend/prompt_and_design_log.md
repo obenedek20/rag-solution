@@ -1389,3 +1389,25 @@ Unique Risks: Tesla’s legal disputes and labor challenges are distinct, JPMorg
 Data Gaps: No direct comparisons of financial metrics (e.g., revenue, losses) are provided in the context.
 
 ## Note: These are good results for more companies in the query.
+
+# Additional Testing:
+
+## First request: 
+What regulatory risks do the major pharmaceutical companies face, and how are they addressing them?
+
+## Follow-up:
+Major pharmaceutical companies face regulatory risks from compliance with international anti-corruption laws (e.g., FCPA, UK Bribery Act), FDA and global regulatory scrutiny, third-party manufacturing failures, and healthcare reforms. They address these risks through compliance measures, adherence to regulatory requirements, and financial hedging strategies for currency and interest rate fluctuations.
+
+How are major pharmaceutical companies addressing them?
+
+## Idea: we should be able to get all information on a follow-up by providing summary from first prompt
+
+Summary: Major pharmaceutical companies address regulatory risks through investments in quality systems and compliance measures, adherence to cGMP and anti-corruption laws, management of third-party relationships, and financial hedging for currency/interest rate fluctuations. Specific strategies include compliance investments, regulatory adherence, and hedging mechanisms.
+
+Compliance and Quality Systems: Companies like LLY and JNJ emphasize substantial investments in quality systems and controls to maintain compliance with cGMP and other regulations [LLY_10K_2026-02-12_full.txt][JNJ_10K_2023Q4_2024-02-16_full.txt].
+Anti-Corruption and Legal Adherence: JNJ acknowledges risks under the FCPA and UK Bribery Act, though specific mitigation strategies beyond compliance costs are not detailed [JNJ_10K_2026-02-11_full.txt].
+Third-Party Management: LLY and JNJ highlight reliance on third-party manufacturers and the risks of non-compliance, though they do not explicitly outline mitigation steps for these dependencies [LLY_10K_2026-02-12_full.txt][JNJ_10K_2023Q4_2024-02-16_full.txt].
+Financial Hedging: Merck (MRK) mentions hedging agreements for currency and interest rate risks, though this is framed as addressing financial volatility rather than regulatory risks directly [MRK_10K_2025-02-25_full.txt].
+Note: The context does not explicitly describe how companies mitigate all listed risks (e.g., healthcare reforms) or link hedging strategies directly to regulatory compliance.
+
+## Note: While we do not have mitigation details, we do get see how companies are addressing regulatory risks
