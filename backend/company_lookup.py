@@ -14,9 +14,12 @@ from ollama import chat
 # Used inside indexing.py
 ######################################################
 
+# Grabs company ticker from corpus file name
 def extract_company(file_name):
     return file_name.split("_")[0]
 
+# loads documents from corpus, gets ticker from file name, and queries LLM for list of company names and aliases
+# saves results to companies.json
 def retrieve_companies_from_tickers():
     companies = set()
 
@@ -31,7 +34,12 @@ def retrieve_companies_from_tickers():
 
     print(companies)
 
-    resp = ask_llm("Take in this list of company tickers and respond with a json list of the tickers and their corresponding company names and common aliases (many if there are multiple common ones) for the company - the goal is to validate against a user input and see whether the user input contains any of these companies. If a ticker is not found, return 'Unknown' for the company name. Note that MS means Morgan Stanley, not Microsoft. The list of tickers is: " + ", ".join(companies))
+    resp = ask_llm("""Take in this list of company tickers and respond with the tickers and their 
+    corresponding company names and common aliases (many if there are multiple common ones) for the company - 
+    the goal is to validate against a user input and see whether the user input contains any of these companies. 
+    If a ticker is not found, return 'Unknown' for the company name. Note that MS means Morgan Stanley, not Microsoft. 
+    The output format should be a list of objects, each object containing the following fields: 'ticker', 'company', and 'aliases' (a list of strings).
+    The list of tickers is: """ + ", ".join(companies))
 
     print(resp)
     resp = json.loads(resp) # convert to proper format
@@ -48,6 +56,8 @@ def retrieve_companies_from_tickers():
 # Used inside generate.py to extract entities 
 # from user query
 ######################################################
+
+# Creates entity map from companies.json to search by company name/alias and return ticker (avoids LLM call for generation step)
 def build_entity_map():
     """
     Creates map:
@@ -64,6 +74,7 @@ def build_entity_map():
     entity_map = {}
 
     for item in data:
+        print(f"Processing item: {item}")
         ticker = item["ticker"]
         company = item["company"]
         aliases = item.get("aliases", [])
@@ -104,6 +115,7 @@ def extract_entities_hybrid(query, ENTITY_MAP):
 
     return list(results)
 
+# True if should use global search, not company specific - search global based on keywords (manually configured) or lack of tickers
 def should_use_global(query, ENTITY_MAP, tickers):
     # no entities found
     if len(tickers) == 0:
@@ -126,6 +138,7 @@ def should_use_global(query, ENTITY_MAP, tickers):
     return False
 
 
+# Decide on global or per-company rag search
 def route(query, ENTITY_MAP):
     tickers = extract_entities_hybrid(query, ENTITY_MAP)
     print(f"Extracted tickers: {tickers}")
@@ -147,6 +160,7 @@ def route(query, ENTITY_MAP):
 # generate.py. Queries ollama llm
 ######################################################
 
+# query ollama LLM with prompt and return response
 def ask_llm(prompt):
     response = chat(
         model="qwen3:8b",

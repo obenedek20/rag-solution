@@ -989,6 +989,7 @@ The primary risk factors for Apple, Tesla, and JPMorganChase (JPM) are outlined 
 Especially for named company search, we can pull a lot of results from each company and then drill down for the most important ones
 
 # 8. Improve Prompt
+
 ## Idea: results are good, but prompt is not very specific and lacks some guardrails that are needed for this specific use-case
 
 This new prompt tries to set the following guidelines:
@@ -1021,6 +1022,70 @@ Question:
 {query}
 
 ## Query: 
-"What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
+"What are the main risks facing Apple and Tesla?"
 
 ## Result:
+
+The provided context only includes information about **Apple Inc.** and does not mention **Tesla** or any risks related to Tesla. Below are the main risks facing **Apple** as described in the filings:
+
+1. **Intense Competition**: Competitors have aggressively cut prices and lowered margins, with some able to operate at little or no profit. Apple holds a minority market share in key markets like smartphones, personal computers, and wearables [Source 1].
+
+2. **Supply Chain and Operational Risks**: Climate change, geopolitical tensions, and natural disasters could disrupt manufacturing and delivery. Cybersecurity threats (e.g., ransomware, attacks on confidentiality) could impair operations, damage reputation, or lead to litigation [Sources 2, 3].
+
+3. **Economic and Financial Risks**: Adverse economic conditions could lead to credit risks, reduced liquidity, and declines in financial instrument values. These factors could harm Apple’s financial condition and stock price [Source 4].
+
+4. **Product and Service Quality Issues**: Outages, service slowdowns, or errors in hardware, software, or services could fail to meet customer expectations. New technologies (e.g., AI) may introduce safety risks, such as exposure to harmful or inaccurate content [Sources 5, 6, 8].
+
+5. **Environmental and Regulatory Risks**: Efforts to meet environmental goals or align with stakeholder expectations involve uncertainties, costs, and reliance on third parties. Failing to comply with evolving regulations could lead to legal actions or reputational harm [Source 7].
+
+**Note**: The context does not provide any information about risks facing **Tesla**.
+
+## Note: I'd like the file name to be shown, not the file number - this will help give better sourcing. Also, looks like the re-ranker removed the important sources for tesla - need to look at how to remedy this.
+
+# 9. 
+## Idea: Improve sourcing and re-ranking
+
+You are a financial research assistant that answers questions
+using only SEC EDGAR filing excerpts provided to you. You do not give investment
+advice or recommendations — only factual information grounded in the filings. 
+
+Rules:
+1. Use ONLY the provided context. Do not use prior knowledge about these companies.
+2. Every factual claim must be attributed to a specific source chunk's file name, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
+3. If chunks come from different companies or fiscal periods, never blend their data 
+   together unless the question explicitly asks for a comparison — and if you do 
+   compare, label each figure with its company and period.
+4. Preserve numbers, units, and currency exactly as written (e.g., "$1.2M" vs 
+   "$1,200,000" — don't convert or recompute unless asked).
+5. If the context only partially answers the question, answer the part you can and 
+   explicitly state what's missing.
+6. If the context doesn't address the question at all, say so plainly — don't guess.
+7. Never invent a source number that wasn't given to you.
+
+Context:
+{context}
+
+Question:
+{query}
+
+## Query: 
+
+"What are the main risks facing Apple and Tesla?"
+
+## Result:
+
+**Apple's Main Risks (from SEC filings):**  
+1. **Intense Competition**: Competitors aggressively cut prices and lower margins, potentially harming Apple's market share and profitability. [AAPL_10K_2025-10-31_full.txt]  
+2. **Supply Chain Disruptions**: Geopolitical tensions, natural disasters, and cybersecurity threats (e.g., ransomware, hostile acts) could disrupt manufacturing, delivery, and operations. [AAPL_10Q_2025Q1_2025-05-02_full.txt]  
+3. **Cybersecurity Threats**: Increasing frequency and sophistication of attacks targeting confidential data, which could disrupt operations, harm reputation, and lead to litigation or penalties. [AAPL_10K_2025-10-31_full.txt]  
+4. **Economic Instability**: Adverse economic conditions could lead to credit risks, liquidity challenges, and reduced demand for Apple’s products. [AAPL_10K_2024Q3_2024-11-01_full.txt]  
+
+**Tesla's Main Risks (from SEC filings):**  
+1. **Labor Market Competition**: Difficulty retaining talent due to a competitive labor market, perceptions of past layoffs, and potential departure of senior personnel. [TSLA_10Q_2022Q2_2022-07-25_full.txt]  
+2. **Supply Chain and Material Costs**: Reduced availability or increased prices of critical materials (e.g., batteries) could harm profitability and growth. [TSLA_10Q_2022Q3_2022-10-24_full.txt]  
+3. **Market Competition and Adoption**: The EV market is cyclical and volatile, with Tesla facing competition from both established automakers and startups. Electric vehicles currently represent a small fraction of overall sales. [TSLA_10Q_2022Q3_2022-10-24_full.txt]  
+4. **Demand Uncertainty**: If EV adoption slows or demand for Tesla vehicles declines, it could harm financial performance and growth prospects. [TSLA_10K_2022Q4_2023-01-31_full.txt]  
+
+**Note**: Risks are sourced exclusively from the provided filings and are not blended across companies.
+
+## Note: After changes, we have equal re-ranking of tesla and apple sources (as intended)

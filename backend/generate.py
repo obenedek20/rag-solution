@@ -9,16 +9,18 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from company_lookup import route, build_entity_map, ask_llm
 import os
 from sentence_transformers import CrossEncoder
+from collections import defaultdict
 
 ###############################
 # Querying (Online)
 ###############################
+# Use same embedding model as indexing step to ensure embeddings are in same vector space
 embed_model = HuggingFaceEmbedding(
     model_name="BAAI/bge-small-en-v1.5",
     device="mps" # more efficient when using Apple Silicon
 )
 
-# chunks sent to LLM are the nodes from the json file - faiss index is used to pick nodes (ids in faiss match up to node json)
+RERANKER = CrossEncoder("BAAI/bge-reranker-base")
 
 # Query embedding
 def embed_query(q: str):
@@ -28,7 +30,7 @@ def embed_query(q: str):
         normalize_embeddings=True
     ).astype("float32")
 
-
+# gets company indexes from registry.json and loads faiss index and nodes for each company
 def retrieve_company_indexes():
     BASE_DIR = "storage"
 
@@ -56,6 +58,8 @@ def retrieve_company_indexes():
         }
     return company_indexes
 
+# retrieves relevant nodes based on query and whether we use global or per-company retrieval
+# gets 10 per ticker or 40 for global (before reranking)
 def retrieve(query, ENTITY_MAP):
 
     route_info = route(query, ENTITY_MAP)
@@ -64,15 +68,17 @@ def retrieve(query, ENTITY_MAP):
 
     results = []
 
+    mode = route_info["mode"] # global or entity
+
     # CASE 1: GLOBAL
-    if route_info["mode"] == "global":
+    if mode == "global":
         with open("nodes.json", "r") as f:
             all_nodes = json.load(f)
         global_index = faiss.read_index("global.index.faiss") # binary vector db with embeddings of size n
         scores, idx = global_index.search(vec, k=40)
         results = [all_nodes[i] for i in idx[0]]
 
-    # CASE 2: PER-COMPANY
+    # CASE 2: PER-COMPANY (entity)
     else:
         company_indexes = retrieve_company_indexes()
         for ticker in route_info["tickers"]:
@@ -83,16 +89,17 @@ def retrieve(query, ENTITY_MAP):
 
             results.extend(nodes[i] for i in idx[0])
 
-    return rerank(results, query)
+    return rerank(results, query, mode)
 
-def rerank(results, query):
-    reranker = CrossEncoder("BAAI/bge-reranker-base")
+# reranks pulled nodes based on query using a cross-encoder model
+# if global, return top 8, else return top 4 per company
+def rerank(results, query, mode):
     pairs = [
         (query, node["text"])
         for node in results
     ]
 
-    rerank_scores = reranker.predict(pairs)
+    rerank_scores = RERANKER.predict(pairs)
 
     ranked = sorted(
         zip(rerank_scores, results),
@@ -100,8 +107,27 @@ def rerank(results, query):
         reverse=True
     )
 
-    results = [node for score, node in ranked[:8]]
-    return results
+    # ---------- GLOBAL SEARCH ----------
+    if mode == "global":
+        return [node for _, node in ranked[:8]]
+
+    # ---------- PER-COMPANY SEARCH ----------
+    else:
+        per_company = 4
+
+        company_counts = defaultdict(int)
+        selected = []
+
+        for score, node in ranked:
+            ticker = node["metadata"]["company"]
+
+            if company_counts[ticker] >= per_company:
+                continue
+
+            selected.append(node)
+            company_counts[ticker] += 1
+
+        return selected
 
 # Build final LLM prompt
 def build_prompt(query, results):
@@ -124,7 +150,7 @@ advice or recommendations — only factual information grounded in the filings.
 
 Rules:
 1. Use ONLY the provided context. Do not use prior knowledge about these companies.
-2. Every factual claim must be attributed to a specific source chunk, e.g. [Source 1].
+2. Every factual claim must be attributed to a specific source chunk's file name, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
 3. If chunks come from different companies or fiscal periods, never blend their data 
    together unless the question explicitly asks for a comparison — and if you do 
    compare, label each figure with its company and period.
@@ -142,7 +168,7 @@ Question:
 {query}
 """
 
-
+# main function to process query: retrieves relevant nodes, builds prompt, and sends to LLM
 def process_query(prompt, ENTITY_MAP):
     print(f"Query: {prompt}")
     print(f"Retrieving relevant nodes...")

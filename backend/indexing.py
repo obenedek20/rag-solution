@@ -15,19 +15,11 @@ import os
 import argparse
 from company_lookup import retrieve_companies_from_tickers
 
-def normalize(text):
-    text = text.lower()
-
-    text = re.sub(r"\s+", " ", text)
-
-    text = re.sub(r"\d+", "<num>", text)
-
-    return text.strip()
-
 ###############################
 # Indexing (Offline)
 ###############################
-# load data from edgar_corpus
+
+# load data from edgar_corpus, stores as documents and adds company ticker to metadata (from filename)
 def load_documents():
     print("Loading documents from edgar_corpus...")
     documents = SimpleDirectoryReader("edgar_corpus").load_data()
@@ -45,8 +37,9 @@ def load_documents():
     print(f"Words: {total_words:,}")
     return documents
 
+# creates nodes: uses chunk-size splitter to generate nodes from documents and recreates embedding model
 def create_nodes(documents):
-    # Create embedding model
+    # Create embedding model - turns text into numerical vectors for semantic search
     embed_model = HuggingFaceEmbedding(
         model_name="BAAI/bge-small-en-v1.5",
         device="mps" # more efficient when using Apple Silicon
@@ -69,6 +62,18 @@ def create_nodes(documents):
 ###############################
 # Pre-processing / Filtering
 ###############################
+
+# normalizes text for duplicate chunk detection - lowercasing, whitespace normalization, and number replacement (for page numbers)
+def normalize(text):
+    text = text.lower()
+
+    text = re.sub(r"\s+", " ", text)
+
+    text = re.sub(r"\d+", "<num>", text)
+
+    return text.strip()
+
+# removes duplicate or near duplicate nodes (depends on normalization) and removes nodes with low-value text
 def filter_nodes(nodes):
     SKIP_PHRASES = [
         # --- SEC cover / filing header boilerplate ---
@@ -165,6 +170,8 @@ def filter_nodes(nodes):
     print(f"Filtered nodes: {len(nodes)} (skipped {skipped_nodes})")
     return nodes
 
+# creates list of company node, encodes per company (based on metadata company ticker field)
+# also creates faiss index per company (inside company_embeddings dictionary)
 def per_company_indexing_setup(nodes, embed_model):
     company_nodes = {}
     for node in nodes:
@@ -203,6 +210,7 @@ def per_company_indexing_setup(nodes, embed_model):
     return company_indexes, company_embeddings, dim
     # Now have AAPL → FAISS + nodes, MSFT → FAISS + nodes, NVDA → FAISS + nodes
 
+# Creates global node and embedding entries by iterating through per-company embeddings and nodes
 def global_indexing_setup(company_embeddings, dim):
     # Now create global embeddings and FAISS index
     all_nodes = []
@@ -219,6 +227,8 @@ def global_indexing_setup(company_embeddings, dim):
 
     return global_index, all_nodes
 
+# creates storage dir and saves each company's nodes and faiss indexes in subfolders
+# saves global index and nodes to current dir
 def save_indexes(company_indexes, global_index, all_nodes):
     BASE_DIR = "storage"
     os.makedirs(BASE_DIR, exist_ok=True)

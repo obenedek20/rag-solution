@@ -3,7 +3,7 @@ from generate import process_query
 from company_lookup import build_entity_map
 
 app = Flask(__name__)
-ENTITY_MAP = build_entity_map()
+ENTITY_MAP = None
 
 @app.get("/query")
 def query():
@@ -20,4 +20,5 @@ def query():
     })
 
 if __name__ == "__main__":
+    ENTITY_MAP = build_entity_map()
     app.run(host="127.0.0.1", port=5000, debug=True)
