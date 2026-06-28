@@ -1328,3 +1328,64 @@ Electric vehicle market uncertainty: Growth depends on consumer demand, which is
 Operational scalability: Limited resources and production capacity relative to traditional automakers pose growth risks [TSLA_10Q_2022Q3_2022-10-24_full.txt].
 
 ## Note: This is what I am looking for. It is structured well and contains good summarization. The markdown format looks good on the frontend rendering.
+
+# 14. Smaller prompt improvements
+## Idea: Improving the prompt will make sure the results are better every time.
+
+You are a financial research assistant that answers questions
+using only SEC EDGAR filing excerpts provided to you. You do not give investment
+advice or recommendations — only factual information grounded in the filings. 
+
+Rules:
+1. Use ONLY the provided context. Do not use prior knowledge about these companies.
+2. Every factual claim must be attributed to a specific source chunk's file name, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
+3. If chunks come from different companies or fiscal periods, never blend their data 
+   together unless the question explicitly asks for a comparison — and if you do 
+   compare, label each figure with its company and period.
+4. If the context only partially answers the question, answer the part you can and 
+   explicitly state what's missing.
+5. If the context doesn't address the question at all, say so plainly — don't guess.
+6. Never invent a source number that wasn't given to you.
+
+Context:
+{context}
+
+Question:
+{query}
+
+Format: Use Markdown for formatting. For sources, remember to use the file name of the source chunk, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
+
+At the start of your answer, provide a concise summary of the main points in the rest of the response. Focus on the actual content and mention specific points in your summary. The summary should not exceed 2 sentences in length.
+
+## Query: 
+
+"What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
+
+## Result:
+
+Summary:
+Apple faces risks related to market competition, credit risk, and cybersecurity, while Tesla grapples with legal disputes, labor challenges, and growth management. JPMorgan’s primary risks include regulatory compliance, cybersecurity threats, and capital requirements. All three companies also encounter broader economic and geopolitical uncertainties.
+
+Apple (AAPL):
+
+Market Competition: Intense competition in smartphone, PC, and wearables markets, with price cuts and margin pressures from rivals [AAPL_10K_2025-10-31_full.txt].
+Credit and Liquidity Risk: Exposure to credit risk on trade receivables and marketable securities, with potential for significant losses during economic downturns [AAPL_10K_2025-10-31_full.txt].
+Cybersecurity: Risks from cyberattacks on its systems and third-party partners, though less emphasized than for JPMorgan [AAPL_10K_2024Q3_2024-11-01_full.txt].
+Regulatory and Environmental Goals: Uncertainties around achieving sustainability targets and aligning with evolving regulations [AAPL_10K_2025-10-31_full.txt].
+Tesla (TSLA):
+
+Legal and Regulatory Risks: Ongoing lawsuits (e.g., JPMorgan’s breach-of-contract claim) and scrutiny over corporate governance [TSLA_10Q_2023Q1_2023-04-24_full.txt, TSLA_10Q_2023Q2_2023-07-24_full.txt].
+Labor and Operational Risks: Challenges in retaining talent, managing workforce reductions, and competing with better-resourced firms [TSLA_10Q_2022Q2_2022-07-25_full.txt].
+Financing and Growth: Risks in managing vehicle financing programs and scaling operations globally [TSLA_10K_2022Q4_2023-01-31_full.txt].
+JPMorgan (JPM):
+
+Regulatory and Capital Risks: Pressure to meet capital requirements, potential credit rating downgrades, and regulatory scrutiny of business practices [JPM_10K_2026-02-13_full.txt].
+Cybersecurity: Threats from advanced cyberattacks, including AI-driven phishing and quantum computing risks, requiring costly upgrades to security systems [JPM_10K_2026-02-13_full.txt].
+Market Volatility: Exposure to securities market fluctuations, inflation, and geopolitical tensions affecting liquidity and profitability [JPM_10K_2026-02-13_full.txt].
+Comparison:
+
+Common Risks: All three face regulatory and economic uncertainties, though Apple and Tesla emphasize market competition, while JPMorgan focuses on financial regulations.
+Unique Risks: Tesla’s legal disputes and labor challenges are distinct, JPMorgan’s cybersecurity and capital risks are more pronounced, and Apple’s credit and environmental initiatives are unique to its business model.
+Data Gaps: No direct comparisons of financial metrics (e.g., revenue, losses) are provided in the context.
+
+## Note: These are good results for more companies in the query.

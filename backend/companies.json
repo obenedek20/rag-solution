@@ -3,217 +3,258 @@
     "ticker": "AAPL",
     "company": "Apple Inc.",
     "aliases": [
-      "Apple"
+      "Apple",
+      "Apple Inc.",
+      "AAPL"
     ]
   },
   {
     "ticker": "ABBV",
     "company": "AbbVie Inc.",
     "aliases": [
-      "AbbVie"
+      "AbbVie",
+      "AbbVie Inc.",
+      "ABBV"
     ]
   },
   {
     "ticker": "ADBE",
     "company": "Adobe Inc.",
     "aliases": [
-      "Adobe"
+      "Adobe",
+      "Adobe Systems",
+      "ADBE"
     ]
   },
   {
     "ticker": "AMD",
-    "company": "Advanced Micro Devices",
+    "company": "Advanced Micro Devices, Inc.",
     "aliases": [
-      "AMD"
+      "AMD",
+      "Advanced Micro Devices"
     ]
   },
   {
     "ticker": "AMZN",
     "company": "Amazon.com Inc.",
     "aliases": [
-      "Amazon"
+      "Amazon",
+      "Amazon.com",
+      "AMZN"
     ]
   },
   {
     "ticker": "AXP",
     "company": "American Express Company",
     "aliases": [
-      "American Express"
+      "American Express",
+      "AXP"
     ]
   },
   {
     "ticker": "BA",
     "company": "Boeing Co.",
     "aliases": [
-      "Boeing"
+      "Boeing",
+      "Boeing Co.",
+      "BA"
     ]
   },
   {
     "ticker": "BAC",
-    "company": "Bank of America Corp.",
+    "company": "Bank of America Corporation",
     "aliases": [
-      "Bank of America"
+      "Bank of America",
+      "BAC"
     ]
   },
   {
     "ticker": "BLK",
     "company": "BlackRock Inc.",
     "aliases": [
-      "BlackRock"
+      "BlackRock",
+      "BlackRock Inc.",
+      "BLK"
     ]
   },
   {
     "ticker": "BRK",
     "company": "Berkshire Hathaway Inc.",
     "aliases": [
-      "Berkshire Hathaway"
+      "Berkshire Hathaway",
+      "BRK"
     ]
   },
   {
     "ticker": "CAT",
     "company": "Caterpillar Inc.",
     "aliases": [
-      "Caterpillar"
+      "Caterpillar",
+      "CAT"
     ]
   },
   {
     "ticker": "CMCSA",
     "company": "Comcast Corporation",
     "aliases": [
-      "Comcast"
+      "Comcast",
+      "CMCSA"
     ]
   },
   {
     "ticker": "COST",
-    "company": "Costco Wholesale Corp.",
+    "company": "Costco Wholesale Corporation",
     "aliases": [
-      "Costco"
+      "Costco",
+      "COST"
     ]
   },
   {
     "ticker": "CRM",
     "company": "Salesforce.com Inc.",
     "aliases": [
-      "Salesforce"
+      "Salesforce",
+      "Salesforce.com",
+      "CRM"
     ]
   },
   {
     "ticker": "CSCO",
     "company": "Cisco Systems Inc.",
     "aliases": [
-      "Cisco"
+      "Cisco",
+      "CSCO"
     ]
   },
   {
     "ticker": "CVX",
-    "company": "Chevron Corp.",
+    "company": "Chevron Corporation",
     "aliases": [
-      "Chevron"
+      "Chevron",
+      "CVX"
     ]
   },
   {
     "ticker": "DE",
     "company": "Deutsche Bank AG",
     "aliases": [
-      "Deutsche Bank"
+      "Deutsche Bank",
+      "DE"
     ]
   },
   {
     "ticker": "DIS",
     "company": "The Walt Disney Company",
     "aliases": [
-      "Disney"
+      "Disney",
+      "DIS"
     ]
   },
   {
     "ticker": "GE",
-    "company": "General Electric Co.",
+    "company": "General Electric Company",
     "aliases": [
-      "GE"
+      "GE",
+      "General Electric"
     ]
   },
   {
     "ticker": "GOOG",
     "company": "Alphabet Inc.",
     "aliases": [
-      "Google"
+      "Alphabet",
+      "Google",
+      "GOOG"
     ]
   },
   {
     "ticker": "GS",
     "company": "Goldman Sachs Group Inc.",
     "aliases": [
-      "Goldman Sachs"
+      "Goldman Sachs",
+      "GS"
     ]
   },
   {
     "ticker": "HD",
     "company": "The Home Depot Inc.",
     "aliases": [
-      "Home Depot"
+      "Home Depot",
+      "HD"
     ]
   },
   {
     "ticker": "IBM",
-    "company": "IBM Corp.",
+    "company": "IBM Corporation",
     "aliases": [
-      "IBM"
+      "IBM",
+      "International Business Machines"
     ]
   },
   {
     "ticker": "INTC",
-    "company": "Intel Corp.",
+    "company": "Intel Corporation",
     "aliases": [
-      "Intel"
+      "Intel",
+      "INTC"
     ]
   },
   {
     "ticker": "JNJ",
     "company": "Johnson & Johnson",
     "aliases": [
-      "J&J"
+      "Johnson & Johnson",
+      "JNJ"
     ]
   },
   {
     "ticker": "JPM",
     "company": "JPMorgan Chase & Co.",
     "aliases": [
-      "JPMorgan Chase"
+      "JPMorgan",
+      "JPMorgan Chase",
+      "JPM"
     ]
   },
   {
     "ticker": "KO",
     "company": "The Coca-Cola Company",
     "aliases": [
-      "Coca-Cola"
+      "Coca-Cola",
+      "Coke",
+      "KO"
     ]
   },
   {
     "ticker": "LLY",
-    "company": "Eli Lilly and Co.",
+    "company": "Lilly Inc.",
     "aliases": [
-      "Lilly"
+      "Eli Lilly",
+      "LLY"
     ]
   },
   {
     "ticker": "LMT",
-    "company": "Lockheed Martin Corp.",
+    "company": "Lockheed Martin Corporation",
     "aliases": [
-      "Lockheed Martin"
+      "Lockheed Martin",
+      "LMT"
     ]
   },
   {
     "ticker": "MA",
     "company": "Marriott International Inc.",
     "aliases": [
-      "Marriott"
+      "Marriott",
+      "MA"
     ]
   },
   {
     "ticker": "MCD",
-    "company": "McDonald's Corp.",
+    "company": "McDonald's Corporation",
     "aliases": [
-      "McDonald's"
+      "McDonald's",
+      "MCD"
     ]
   },
   {
@@ -221,161 +262,191 @@
     "company": "Meta Platforms Inc.",
     "aliases": [
       "Meta",
-      "Facebook"
+      "Facebook",
+      "META"
     ]
   },
   {
     "ticker": "MRK",
     "company": "Merck & Co. Inc.",
     "aliases": [
-      "Merck"
+      "Merck",
+      "MRK"
     ]
   },
   {
     "ticker": "MS",
     "company": "Morgan Stanley",
     "aliases": [
-      "Morgan Stanley & Co."
+      "Morgan Stanley",
+      "MS"
     ]
   },
   {
     "ticker": "MSFT",
-    "company": "Microsoft Corp.",
+    "company": "Microsoft Corporation",
     "aliases": [
-      "Microsoft"
+      "Microsoft",
+      "MSFT"
     ]
   },
   {
     "ticker": "NFLX",
     "company": "Netflix Inc.",
     "aliases": [
-      "Netflix"
+      "Netflix",
+      "NFLX"
     ]
   },
   {
     "ticker": "NKE",
     "company": "Nike Inc.",
     "aliases": [
-      "Nike"
+      "Nike",
+      "NKE"
     ]
   },
   {
     "ticker": "NVDA",
-    "company": "NVIDIA Corp.",
+    "company": "NVIDIA Corporation",
     "aliases": [
-      "NVIDIA"
+      "NVIDIA",
+      "NVDA"
     ]
   },
   {
     "ticker": "ORCL",
-    "company": "Oracle Corp.",
+    "company": "Oracle Corporation",
     "aliases": [
-      "Oracle"
+      "Oracle",
+      "ORCL"
     ]
   },
   {
     "ticker": "PEP",
     "company": "PepsiCo Inc.",
     "aliases": [
-      "PepsiCo"
+      "PepsiCo",
+      "PEP"
     ]
   },
   {
     "ticker": "PFE",
     "company": "Pfizer Inc.",
     "aliases": [
-      "Pfizer"
+      "Pfizer",
+      "PFE"
     ]
   },
   {
     "ticker": "PG",
     "company": "Procter & Gamble Co.",
     "aliases": [
-      "P&G"
+      "P&G",
+      "PG"
     ]
   },
   {
     "ticker": "RTX",
-    "company": "Raytheon Technologies Corp.",
+    "company": "Raytheon Technologies Corporation",
     "aliases": [
-      "Raytheon"
+      "Raytheon",
+      "RTX"
     ]
   },
   {
     "ticker": "SBUX",
-    "company": "Starbucks Corp.",
+    "company": "Starbucks Corporation",
     "aliases": [
-      "Starbucks"
+      "Starbucks",
+      "SBUX"
     ]
   },
   {
     "ticker": "T",
     "company": "AT&T Inc.",
     "aliases": [
-      "AT&T"
+      "AT&T",
+      "T"
     ]
   },
   {
     "ticker": "TGT",
-    "company": "Target Corp.",
+    "company": "Target Corporation",
     "aliases": [
-      "Target"
+      "Target",
+      "TGT"
     ]
   },
   {
     "ticker": "TMO",
-    "company": "Thomson Reuters Corp.",
+    "company": "Thomson Reuters Corporation",
     "aliases": [
-      "Thomson Reuters"
+      "Thomson Reuters",
+      "TMO"
     ]
   },
   {
     "ticker": "TSLA",
     "company": "Tesla Inc.",
     "aliases": [
-      "Tesla"
+      "Tesla",
+      "TSLA"
     ]
   },
   {
     "ticker": "UNH",
     "company": "UnitedHealth Group Inc.",
     "aliases": [
-      "UnitedHealth"
+      "UnitedHealth",
+      "UNH"
     ]
   },
   {
     "ticker": "UPS",
     "company": "United Parcel Service Inc.",
     "aliases": [
-      "UPS"
+      "UPS",
+      "United Parcel Service"
     ]
   },
   {
     "ticker": "V",
     "company": "Visa Inc.",
     "aliases": [
-      "Visa"
+      "Visa",
+      "V"
     ]
   },
   {
     "ticker": "VZ",
     "company": "Verizon Communications Inc.",
     "aliases": [
-      "Verizon"
+      "Verizon",
+      "VZ"
     ]
   },
   {
     "ticker": "WMT",
     "company": "Walmart Inc.",
     "aliases": [
-      "Walmart"
+      "Walmart",
+      "WMT"
     ]
   },
   {
     "ticker": "XOM",
-    "company": "Exxon Mobil Corp.",
+    "company": "Exxon Mobil Corporation",
     "aliases": [
-      "ExxonMobil"
+      "ExxonMobil",
+      "XOM"
+    ]
+  },
+  {
+    "ticker": "manifest.json",
+    "company": "Unknown",
+    "aliases": [
+      "manifest.json"
     ]
   }
 ]

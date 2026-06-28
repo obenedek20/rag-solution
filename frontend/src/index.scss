@@ -31,6 +31,12 @@
   justify-content: flex-end;
 }
 
+.corpus-note {
+  font-size: 0.85rem;
+  color: var(--cds-text-secondary, #c6c6c6);
+  margin: 0;
+}
+
 .answer-tile h5 {
   margin-bottom: 0.5rem;
 }

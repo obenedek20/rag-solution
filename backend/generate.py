@@ -165,7 +165,7 @@ Context:
 Question:
 {query}
 
-Format: Use Markdown for formatting.
+Format: Use Markdown for formatting. For sources, remember to use the file name of the source chunk, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
 
 At the start of your answer, provide a concise summary of the main points in the rest of the response. Focus on the actual content and mention specific points in your summary. The summary should not exceed 2 sentences in length.
 """

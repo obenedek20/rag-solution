@@ -39,6 +39,8 @@ def retrieve_companies_from_tickers():
     the goal is to validate against a user input and see whether the user input contains any of these companies. 
     If a ticker is not found, return 'Unknown' for the company name. Note that MS means Morgan Stanley, not Microsoft. 
     The output format should be a list of objects, each object containing the following fields: 'ticker', 'company', and 'aliases' (a list of strings).
+    There can be multiple aliases for a company, and the aliases should be common names that people might use to refer to the company. Be liberal with this list.
+    JPMorgan Chase, for example, should have 'JPMorgan' within its aliases.
     The list of tickers is: """ + ", ".join(companies))
 
     print(resp)

@@ -89,6 +89,12 @@ export default function App() {
       <Content className="app-content">
         <Grid className="app-grid" fullWidth>
           <Column lg={8} md={6} sm={4} className="app-column">
+            <p className="corpus-note">
+              This corpus is a collection of SEC EDGAR filings — annual
+              reports (10-K) and quarterly reports (10-Q) from major US
+              public companies spanning 2023–2025.
+            </p>
+
             <Tile className="query-tile">
               <TextArea
                 id="query-input"
