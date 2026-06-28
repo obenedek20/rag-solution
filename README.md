@@ -12,7 +12,7 @@ To get started:
     - runs on http://localhost:5000/
 5. Start frontend server: 
     - run `cd frontend` && `npm install` && `npm run dev`
-    - runs on http://localhost:5001/
+    - runs on http://localhost:5001/ (or 5002, 5003 etc if others not available)
 
 ## Indexing:
 
