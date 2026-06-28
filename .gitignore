@@ -1,11 +1,34 @@
+# OS files
 .DS_Store
+Thumbs.db
+
+# Backend (Python)
 backend/__pycache__/
+__pycache__/
+*.pyc
+.venv/
 edgar_corpus/
 edgar_corpus.zip
-.venv/
 backend/storage/
 backend/*.faiss
 backend/nodes.json
 
-__pycache__/
-*.pyc
+# Frontend (Node / Vite)
+node_modules
+dist
+dist-ssr
+.vite
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.sw?

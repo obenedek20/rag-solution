@@ -154,18 +154,20 @@ Rules:
 3. If chunks come from different companies or fiscal periods, never blend their data 
    together unless the question explicitly asks for a comparison — and if you do 
    compare, label each figure with its company and period.
-4. Preserve numbers, units, and currency exactly as written (e.g., "$1.2M" vs 
-   "$1,200,000" — don't convert or recompute unless asked).
-5. If the context only partially answers the question, answer the part you can and 
+4. If the context only partially answers the question, answer the part you can and 
    explicitly state what's missing.
-6. If the context doesn't address the question at all, say so plainly — don't guess.
-7. Never invent a source number that wasn't given to you.
+5. If the context doesn't address the question at all, say so plainly — don't guess.
+6. Never invent a source number that wasn't given to you.
 
 Context:
 {context}
 
 Question:
 {query}
+
+Format: Use Markdown for formatting.
+
+At the start of your answer, provide a concise summary of the main points in the rest of the response. Focus on the actual content and mention specific points in your summary. The summary should not exceed 2 sentences in length.
 """
 
 # main function to process query: retrieves relevant nodes, builds prompt, and sends to LLM

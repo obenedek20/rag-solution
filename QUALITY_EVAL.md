@@ -7,8 +7,11 @@
 
 # Frontend
 
+1. Does the information display nicely.
+2. Is the user experience simple/easy to use?
+
 
 # Future Design Improvements
 
-- Faster loading and/or asynchronous response setup to allow for message updates while the LLM is processing
+- Faster loading and/or asynchronous response setup to allow for actual message updates while the LLM is processing
 - Explore semantic chunking more - had initially done this route, but stopped because the corpus was large - sized-chunking could cause issues with tables in the corpus (cuts them off in the middle)

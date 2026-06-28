@@ -1055,12 +1055,10 @@ Rules:
 3. If chunks come from different companies or fiscal periods, never blend their data 
    together unless the question explicitly asks for a comparison — and if you do 
    compare, label each figure with its company and period.
-4. Preserve numbers, units, and currency exactly as written (e.g., "$1.2M" vs 
-   "$1,200,000" — don't convert or recompute unless asked).
-5. If the context only partially answers the question, answer the part you can and 
+4. If the context only partially answers the question, answer the part you can and 
    explicitly state what's missing.
-6. If the context doesn't address the question at all, say so plainly — don't guess.
-7. Never invent a source number that wasn't given to you.
+5. If the context doesn't address the question at all, say so plainly — don't guess.
+6. Never invent a source number that wasn't given to you.
 
 Context:
 {context}
@@ -1089,3 +1087,244 @@ Question:
 **Note**: Risks are sourced exclusively from the provided filings and are not blended across companies.
 
 ## Note: After changes, we have equal re-ranking of tesla and apple sources (as intended)
+
+# 10. Beginning Summary
+## Idea: Add concise summary requirement into beginning of prompt for readibility will improve user experience
+
+You are a financial research assistant that answers questions
+using only SEC EDGAR filing excerpts provided to you. You do not give investment
+advice or recommendations — only factual information grounded in the filings. 
+
+Rules:
+1. Use ONLY the provided context. Do not use prior knowledge about these companies.
+2. Every factual claim must be attributed to a specific source chunk's file name, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
+3. If chunks come from different companies or fiscal periods, never blend their data 
+   together unless the question explicitly asks for a comparison — and if you do 
+   compare, label each figure with its company and period.
+4. If the context only partially answers the question, answer the part you can and 
+   explicitly state what's missing.
+5. If the context doesn't address the question at all, say so plainly — don't guess.
+6. Never invent a source number that wasn't given to you.
+
+Context:
+{context}
+
+Question:
+{query}
+
+At the start of your answer, provide a consise summary of the main points you will make in the response.
+
+## Query: 
+
+"What are the main risks facing Apple and Tesla?"
+
+## Result:
+
+**Summary:**  
+Apple faces risks related to competitive pricing pressure, supply chain disruptions, cybersecurity threats, and adverse economic conditions. Tesla’s risks include labor market challenges, supply chain material constraints, market demand for electric vehicles, and industry competition.  
+
+**Detailed Answer:**  
+**Apple’s Main Risks:**  
+1. **Intense Competition:** Competitors may cut prices and operate at little or no profit, threatening Apple’s market share in smartphones, PCs, tablets, and wearables [AAPL_10K_2025-10-31_full.txt].  
+2. **Supply Chain Disruptions:** Climate change and geopolitical tensions could disrupt global supply chains, affecting Apple’s ability to manufacture and deliver products [AAPL_10Q_2025Q1_2025-05-02_full.txt].  
+3. **Cybersecurity Threats:** The company faces risks from ransomware, data breaches, and attacks targeting its operations, which could harm its reputation, customers, and financials [AAPL_10K_2025-10-31_full.txt].  
+4. **Economic Volatility:** Adverse economic conditions could strain liquidity, credit availability, and financial instruments, impacting operations and stock price [AAPL_10K_2024Q3_2024-11-01_full.txt].  
+
+**Tesla’s Main Risks:**  
+1. **Labor Market Challenges:** High competition for skilled workers, potential employee attrition, and negative publicity could harm operations [TSLA_10Q_2022Q2_2022-07-25_full.txt].  
+2. **Supply Chain Material Constraints:** Limited availability or rising prices of critical materials (e.g., batteries) could hinder growth and profitability [TSLA_10Q_2022Q3_2022-10-24_full.txt].  
+3. **Market Demand for EVs:** Slow adoption of electric vehicles or reduced demand could harm Tesla’s business, especially given the small share of EVs in overall vehicle sales [TSLA_10Q_2022Q3_2022-10-24_full.txt].  
+4. **Industry Competition:** Tesla faces challenges from established automakers and emerging startups, with limited resources compared to rivals [TSLA_10Q_2022Q2_2022-07-25_full.txt].  
+
+Both companies also face risks related to geopolitical tensions and operational disruptions, though the specific contexts differ.
+
+## Note: Summary is a good start of the response and provides good starting information
+
+# 11. Markdown
+## Idea: Requiring markdown format for response for better display in frontend. Also marking the structure for the summary
+
+You are a financial research assistant that answers questions
+using only SEC EDGAR filing excerpts provided to you. You do not give investment
+advice or recommendations — only factual information grounded in the filings. 
+
+Rules:
+1. Use ONLY the provided context. Do not use prior knowledge about these companies.
+2. Every factual claim must be attributed to a specific source chunk's file name, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
+3. If chunks come from different companies or fiscal periods, never blend their data 
+   together unless the question explicitly asks for a comparison — and if you do 
+   compare, label each figure with its company and period.
+4. If the context only partially answers the question, answer the part you can and 
+   explicitly state what's missing.
+5. If the context doesn't address the question at all, say so plainly — don't guess.
+6. Never invent a source number that wasn't given to you.
+
+Context:
+{context}
+
+Question:
+{query}
+
+Structure: At the start of your answer, provide a consise summary of the main points you will make in the response.
+
+Format: Use Markdown for formatting. Use headings, bullet points, and tables where appropriate. Cite sources in square brackets, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
+
+## Query: 
+
+"What are the main risks facing Apple and Tesla?"
+
+## Result:
+
+Main Risks Facing Apple and Tesla
+Apple Inc.
+1. Competitive Pressures and Market Share
+Intense competition with price cuts and low-profit margins from competitors, some of which can operate at a loss [[AAPL_10K_2025-10-31_full.txt]].
+Apple holds a minority market share in global smartphone, personal computer, tablet, and wearables markets, with some markets experiencing stagnation or contraction [[AAPL_10K_2025-10-31_full.txt]].
+2. Cybersecurity Threats
+Risks from ransomware, data breaches, and attacks targeting confidentiality, integrity, and availability of information [[AAPL_10K_2025-10-31_full.txt]].
+Increased frequency and sophistication of attacks, exacerbated by geopolitical tensions and the high value of Apple’s data [[AAPL_10K_2025-10-31_full.txt]].
+3. Supply Chain and Operational Disruptions
+Global climate change and natural disasters could disrupt manufacturing and delivery [[AAPL_10Q_2025Q1_2025-05-02_full.txt]].
+Geopolitical tensions or conflicts may cause significant supply chain disruptions [[AAPL_10Q_2025Q1_2025-05-02_full.txt]].
+4. Economic and Financial Risks
+Adverse economic conditions could lead to financial instability, credit risks, liquidity issues, and declines in the fair value of financial instruments [[AAPL_10K_2024Q3_2024-11-01_full.txt]].
+Tesla Inc.
+1. Labor and Talent Retention
+High competition for skilled workers in engineering, manufacturing, and technology, with risks of employee turnover and negative publicity [[TSLA_10Q_2022Q2_2022-07-25_full.txt]].
+Perceptions of past layoffs and senior personnel departures may harm recruitment and retention [[TSLA_10Q_2022Q1_2022-04-25_full.txt]].
+2. Supply Chain and Material Costs
+Reduced availability or increased prices of critical materials (e.g., batteries) could impact production and profitability [[TSLA_10Q_2022Q3_2022-10-24_full.txt]].
+Dependence on a limited supply of materials for electric vehicle components [[TSLA_10Q_2022Q3_2022-10-24_full.txt]].
+3. Market Demand and Industry Volatility
+Growth depends on consumer demand for electric vehicles (EVs), which is cyclical and competitive [[TSLA_10K_2022Q4_2023-01-31_full.txt]].
+EVs constitute a small percentage of overall vehicle sales, posing risks if market adoption slows [[TSLA_10K_2022Q4_2023-01-31_full.txt]].
+4. Operational and Strategic Risks
+Limited resources and production capacity compared to established competitors in the automotive industry [[TSLA_10Q_2022Q3_2022-10-24_full.txt]].
+Potential brand harm from price increases or inability to meet demand [[TSLA_10Q_2022Q3_2022-10-24_full.txt]].
+Summary Table
+Risk Category	Apple	Tesla
+Competitive Pressures	Minority market share, price wars, and stagnant markets [[1]][[3]]	EV market competition, limited production capacity [[7]][[8]]
+Cybersecurity	High-profile targets, ransomware, and data breaches [[2]][[3]]	Data breaches and operational disruptions [[7]][[8]]
+Supply Chain Risks	Climate change, geopolitical tensions [[2]]	Material scarcity, pricing volatility [[7]][[8]]
+Economic/Financial	Credit risks, liquidity issues [[4]]	Adverse economic conditions, liquidity risks [[7]][[8]]
+Labor/Talent	High competition for skilled workers [[1]][[2]]	Talent retention challenges, negative publicity [[5]][[6]]
+Note: Sources are cited as [[File Name]] per the provided context.
+
+
+## Note: Summary at the bottom and citations are double bracketed
+
+# 12. More Markdown
+## Idea: Adjusting markdown format in prompt requirements
+
+You are a financial research assistant that answers questions
+using only SEC EDGAR filing excerpts provided to you. You do not give investment
+advice or recommendations — only factual information grounded in the filings. 
+
+Rules:
+1. Use ONLY the provided context. Do not use prior knowledge about these companies.
+2. Every factual claim must be attributed to a specific source chunk's file name, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
+3. If chunks come from different companies or fiscal periods, never blend their data 
+   together unless the question explicitly asks for a comparison — and if you do 
+   compare, label each figure with its company and period.
+4. If the context only partially answers the question, answer the part you can and 
+   explicitly state what's missing.
+5. If the context doesn't address the question at all, say so plainly — don't guess.
+6. Never invent a source number that wasn't given to you.
+
+Context:
+{context}
+
+Question:
+{query}
+
+Format: Use Markdown for formatting.
+
+At the start of your answer, provide a consise summary of the main points you will make in the response.
+
+## Query: 
+
+"What are the main risks facing Apple and Tesla?"
+
+## Result:
+
+Summary of Main Risks Facing Apple and Tesla
+This response outlines the primary risks identified in the provided SEC filings for Apple and Tesla, including competition, supply chain disruptions, cybersecurity threats, labor challenges, and market dependency. Each risk is attributed to its specific source.
+
+Apple’s Main Risks
+Intense Competition
+
+Competitors are cutting prices and lowering margins, with some operating at little or no profit. Apple has a minority market share in key sectors like smartphones and wearables, and failure to compete could harm its business and stock price [AAPL_10K_2025-10-31_full.txt].
+Supply Chain and Geopolitical Disruptions
+
+Global climate change and geopolitical tensions could disrupt supply chains, leading to manufacturing delays, increased costs, and reduced demand in affected regions [AAPL_10K_2025-10-31_full.txt].
+Cybersecurity Threats
+
+The company faces risks from ransomware, data breaches, and other cyberattacks that could disrupt operations, damage reputation, and lead to legal or financial penalties [AAPL_10K_2025-10-31_full.txt].
+Economic and Financial Risks
+
+Adverse economic conditions could lead to credit risks, liquidity issues, and reduced demand for products, impacting financial stability and stock price [AAPL_10K_2024Q3_2024-11-01_full.txt].
+Tesla’s Main Risks
+Labor Market Challenges
+
+High competition for skilled workers in engineering and manufacturing, coupled with negative publicity, may lead to talent attrition and operational disruptions [TSLA_10Q_2022Q2_2022-07-25_full.txt].
+Supply Chain Material Shortages
+
+Reduced availability or increased prices of critical materials (e.g., batteries) could hinder production, profitability, and growth [TSLA_10Q_2022Q3_2022-10-24_full.txt].
+Market Competition and Adoption
+
+The automotive industry is highly competitive, cyclical, and volatile. Tesla’s success depends on EV demand growth, which may not materialize as expected, harming its financial prospects [TSLA_10Q_2022Q3_2022-10-24_full.txt].
+Dependence on EV Market Growth
+
+Electric vehicles currently represent a small fraction of overall sales, and Tesla’s future relies heavily on consumer adoption, which could be slowed by market saturation or regulatory changes [TSLA_10K_2022Q4_2023-01-31_full.txt].
+Note: Risks for Apple and Tesla are distinct due to differences in industry dynamics and operational focus.
+
+## Note: Summary is not as good as I would like. Want to iterate on it.
+
+# 13. More Markdown
+## Idea: Summary should read better and contain actual concise sumary of points
+
+You are a financial research assistant that answers questions
+using only SEC EDGAR filing excerpts provided to you. You do not give investment
+advice or recommendations — only factual information grounded in the filings. 
+
+Rules:
+1. Use ONLY the provided context. Do not use prior knowledge about these companies.
+2. Every factual claim must be attributed to a specific source chunk's file name, e.g. [AAPL_10K_2024Q3_2024-11-01_full.txt].
+3. If chunks come from different companies or fiscal periods, never blend their data 
+   together unless the question explicitly asks for a comparison — and if you do 
+   compare, label each figure with its company and period.
+4. If the context only partially answers the question, answer the part you can and 
+   explicitly state what's missing.
+5. If the context doesn't address the question at all, say so plainly — don't guess.
+6. Never invent a source number that wasn't given to you.
+
+Context:
+{context}
+
+Question:
+{query}
+
+Format: Use Markdown for formatting.
+
+At the start of your answer, provide a concise summary of the main points in the rest of the response. Focus on the actual content and mention specific points in your summary. The summary should not exceed 2 sentences in length.
+
+## Query: 
+
+"What are the main risks facing Apple and Tesla?"
+
+## Result:
+
+Summary:
+Apple faces risks from competitive pressures, supply chain disruptions, cybersecurity threats, and economic instability. Tesla's main risks include labor market challenges, material supply volatility, electric vehicle market uncertainty, and operational scalability issues.
+
+Apple's Main Risks
+Intense competition: Competitors cut prices and margins, threatening Apple’s market share in smartphones, PCs, tablets, and wearables [AAPL_10K_2025-10-31_full.txt].
+Supply chain and geopolitical risks: Natural disasters, extreme weather, and geopolitical tensions could disrupt manufacturing and delivery [AAPL_10Q_2025Q1_2025-05-02_full.txt].
+Cybersecurity threats: Ransomware and other attacks target Apple’s confidential data, risking operational disruptions and reputational harm [AAPL_10K_2025-10-31_full.txt].
+Economic instability: Adverse conditions could strain credit availability, liquidity, and financial instrument valuations [AAPL_10K_2024Q3_2024-11-01_full.txt].
+Tesla's Main Risks
+Labor market challenges: Difficulty retaining talent due to competition with established firms and start-ups, plus negative publicity [TSLA_10Q_2022Q2_2022-07-25_full.txt].
+Material supply and pricing: Volatility in raw material costs could impact production and profitability [TSLA_10Q_2022Q3_2022-10-24_full.txt].
+Electric vehicle market uncertainty: Growth depends on consumer demand, which is cyclical and volatile, with Tesla lagging established competitors [TSLA_10Q_2022Q3_2022-10-24_full.txt].
+Operational scalability: Limited resources and production capacity relative to traditional automakers pose growth risks [TSLA_10Q_2022Q3_2022-10-24_full.txt].
+
+## Note: This is what I am looking for. It is structured well and contains good summarization. The markdown format looks good on the frontend rendering.
