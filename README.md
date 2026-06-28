@@ -7,7 +7,7 @@ To get started:
 2. Install requirements.txt: `pip install -r backend/requirements.txt`
 3. Start ollama and load in ollama model:
     - `ollama serve`
-    - `ollama pull qwen3:8b` or `ollama pull llama3.1:8b`
+    - `ollama pull qwen3:8b`
 4. Start backend server: `python3.11 backend/server.py`
     - runs on http://localhost:5000/
 5. Start frontend server: 
