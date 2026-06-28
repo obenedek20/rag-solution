@@ -987,3 +987,40 @@ The primary risk factors for Apple, Tesla, and JPMorganChase (JPM) are outlined 
 
 ## Note: reranking seems to create good (and sometimes more concise results) while making sure that the nodes pulled are accurate
 Especially for named company search, we can pull a lot of results from each company and then drill down for the most important ones
+
+# 8. Improve Prompt
+## Idea: results are good, but prompt is not very specific and lacks some guardrails that are needed for this specific use-case
+
+This new prompt tries to set the following guidelines:
+1. Removes all-or-nothing approach - allows for partial answers
+2. Adds sourcing to all responses
+3. Do not mix data from different years - and if you do, make sure it is obvious where the data comes from
+4. Do not invent sources
+
+## New Prompt Structure
+
+You are a financial research assistant that answers questions
+using only SEC EDGAR filing excerpts provided to you. You do not give investment
+advice or recommendations — only factual information grounded in the filings. 
+
+Rules:
+1. Use ONLY the provided context. Do not use prior knowledge about these companies.
+2. Every factual claim must be attributed to a specific source chunk, e.g. [Source 1].
+3. If chunks come from different companies or fiscal periods, never blend their data 
+   together unless the question explicitly asks for a comparison — and if you do 
+   compare, label each figure with its company and period.
+4. If the context only partially answers the question, answer the part you can and 
+   explicitly state what's missing.
+5. If the context doesn't address the question at all, say so plainly — don't guess.
+6. Never invent a source number that wasn't given to you.
+
+Context:
+{context}
+
+Question:
+{query}
+
+## Query: 
+"What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
+
+## Result:

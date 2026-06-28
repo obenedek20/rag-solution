@@ -172,10 +172,6 @@ def per_company_indexing_setup(nodes, embed_model):
         company_nodes.setdefault(company, []).append(node)
     # Now we have AAPL → [nodes...] MSFT → [nodes...] NVDA → [nodes...]
 
-    # each node has node.text, node.metadata
-    texts = [node.text for node in nodes]
-    metadatas = [node.metadata for node in nodes]
-
     model = embed_model._model
     # Per company embeddings dictionary
     print("Encoding texts into embeddings for per-company embeddings...")
@@ -194,13 +190,9 @@ def per_company_indexing_setup(nodes, embed_model):
 
     print("Creating FAISS indexes for per-company embeddings...")
     company_indexes = {}
-    dim = None
+    dim = model.get_sentence_embedding_dimension()
 
     for company, (nodes_list, embeddings) in company_embeddings.items():
-
-        if dim is None:
-            dim = embeddings.shape[1]
-
         index = faiss.IndexFlatIP(dim)
         index.add(embeddings.astype(np.float32))
 
@@ -208,10 +200,10 @@ def per_company_indexing_setup(nodes, embed_model):
             "index": index,
             "nodes": nodes_list
         }
-    return company_indexes, company_embeddings
+    return company_indexes, company_embeddings, dim
     # Now have AAPL → FAISS + nodes, MSFT → FAISS + nodes, NVDA → FAISS + nodes
 
-def global_indexing_setup(company_embeddings):
+def global_indexing_setup(company_embeddings, dim):
     # Now create global embeddings and FAISS index
     all_nodes = []
     all_embeddings = []
@@ -248,10 +240,11 @@ def save_indexes(company_indexes, global_index, all_nodes):
             json.dump(
                 [
                     {
+                        "id": i,
                         "text": n.text,
                         "metadata": n.metadata
                     }
-                    for n in nodes
+                    for i, n in enumerate(nodes)
                 ],
                 f,
                 indent=2
@@ -287,14 +280,14 @@ if __name__ == "__main__":
         "--no-indexing",
         "-i",
         action="store_true",
-        help="Build indexes"
+        help="Do not build indexes"
     )
 
     parser.add_argument(
         "--no-company-map",
         "-c",
         action="store_true",
-        help="Generate companies.json"
+        help="Do not generate companies.json"
     )
 
     args = parser.parse_args()
@@ -304,8 +297,8 @@ if __name__ == "__main__":
         documents = load_documents()
         nodes, embed_model = create_nodes(documents)
         nodes = filter_nodes(nodes)
-        company_indexes, company_embeddings = per_company_indexing_setup(nodes, embed_model)
-        global_index, all_nodes = global_indexing_setup(company_embeddings)
+        company_indexes, company_embeddings, dim = per_company_indexing_setup(nodes, embed_model)
+        global_index, all_nodes = global_indexing_setup(company_embeddings, dim)
         save_indexes(company_indexes, global_index, all_nodes)
 
     ## Generate companies.json for entity mapping
