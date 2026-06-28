@@ -60,7 +60,7 @@ At the start of your answer, provide a concise summary of the main points in the
 
 ## Quality Evaluation
 
-See (Quality Evaluation)[QUALITY_EVAL.md]
+See [Quality Evaluation](QUALITY_EVAL.md)
 
 ## Example Prompts
 - "What are the primary risk factors facing Apple, Tesla, and JPMorgan, and how do they compare?"
