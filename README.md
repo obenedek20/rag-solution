@@ -23,6 +23,8 @@ To run the indexing pipeline, use `indexing.py` with optional arguments:
 
 Source code: indexing.py and company_lookup.py
 
+Requirement: MUST have edgar_corpus folder in backend folder of git repo
+
 ## Testing backend:
 ```
 curl -X POST http://127.0.0.1:5000/query \
